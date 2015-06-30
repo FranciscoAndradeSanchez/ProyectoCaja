@@ -1,0 +1,81 @@
+﻿@model CajaPopular.rel_solicitante_aval
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>rel_solicitante_aval</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.cantidad)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cantidad)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ingresos_mensuales)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ingresos_mensuales)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ingresos_extra)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ingresos_extra)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.gastos_mensuales)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.gastos_mensuales)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.otras_deudas)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.otras_deudas)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.aval.num_socio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.aval.num_socio)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.solicitante.num_solicitante)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.solicitante.num_solicitante)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

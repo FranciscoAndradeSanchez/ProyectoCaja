@@ -1,0 +1,35 @@
+﻿@model CajaPopular.tasa
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>tasa</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.tasa1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tasa1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.descripcioin)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.descripcioin)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.uid }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

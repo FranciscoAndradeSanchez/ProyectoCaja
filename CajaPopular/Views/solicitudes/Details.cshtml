@@ -1,0 +1,131 @@
+﻿@model CajaPopular.solicitud
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>solicitud</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.fecha)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fecha)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cantidad_solicitada)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cantidad_solicitada)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.plazo_solicitado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.plazo_solicitado)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cantidad_maxima)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cantidad_maxima)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.finalidad)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.finalidad)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.entrega_prestamo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.entrega_prestamo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.clave_interbancaria)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.clave_interbancaria)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tipo_prestamo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tipo_prestamo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.estatus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.estatus)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.monto_autorizado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.monto_autorizado)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.plazo_autorizado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.plazo_autorizado)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fecha_resolucion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fecha_resolucion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.responsable_autorizacion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.responsable_autorizacion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.solicitante.num_solicitante)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.solicitante.num_solicitante)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.uid }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

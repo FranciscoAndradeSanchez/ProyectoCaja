@@ -1,0 +1,922 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="caja_popular2Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="aval">
+          <Key>
+            <PropertyRef Name="uid" />
+          </Key>
+          <Property Name="uid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_persona" Type="int" />
+          <Property Name="num_socio" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="balance">
+          <Key>
+            <PropertyRef Name="id_solicitante" />
+            <PropertyRef Name="factura" />
+            <PropertyRef Name="num_documento" />
+          </Key>
+          <Property Name="id_solicitante" Type="int" Nullable="false" />
+          <Property Name="factura" Type="int" Nullable="false" />
+          <Property Name="num_documento" Type="int" Nullable="false" />
+          <Property Name="descripcion" Type="varchar" MaxLength="120" />
+          <Property Name="cantidad" Type="decimal" Precision="19" Scale="4" />
+          <Property Name="fecha_captura" Type="datetime" />
+          <Property Name="fecha_vencimiento" Type="datetime" />
+          <Property Name="fecha_pago" Type="datetime" />
+          <Property Name="capturista" Type="int" />
+          <Property Name="borrado" Type="bit" />
+          <Property Name="cubierto" Type="bit" />
+        </EntityType>
+        <EntityType Name="contrato">
+          <Key>
+            <PropertyRef Name="uid" />
+          </Key>
+          <Property Name="uid" Type="varchar" MaxLength="5" Nullable="false" />
+          <Property Name="id_solicitud" Type="int" Nullable="false" />
+          <Property Name="id_solicitante" Type="int" Nullable="false" />
+          <Property Name="id_aval" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="cotizacions">
+          <Key>
+            <PropertyRef Name="uid" />
+          </Key>
+          <Property Name="uid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="num_solicitante" Type="int" />
+          <Property Name="monto_solicitado" Type="decimal" Precision="19" Scale="4" />
+          <Property Name="plazo" Type="int" />
+          <Property Name="fecha_captura" Type="datetime" />
+          <Property Name="fecha_entrega" Type="datetime" />
+          <Property Name="monto_asignado" Type="decimal" Precision="19" Scale="4" />
+          <Property Name="tasa" Type="float" />
+        </EntityType>
+        <EntityType Name="formato_contrato">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="encabezado" Type="text" />
+          <Property Name="d_primera" Type="text" />
+          <Property Name="d_segunda" Type="text" />
+          <Property Name="d_tercera" Type="text" />
+          <Property Name="d_tercera2" Type="text" />
+          <Property Name="d_tercera3" Type="text" />
+          <Property Name="c_primera" Type="text" />
+          <Property Name="c_segunda" Type="text" />
+          <Property Name="c_segunda1" Type="text" />
+          <Property Name="c_tercera1" Type="text" />
+          <Property Name="c_tercera2" Type="text" />
+          <Property Name="c_cuarta" Type="text" />
+          <Property Name="c_quinta" Type="text" />
+          <Property Name="c_sexta" Type="text" />
+          <Property Name="c_septima" Type="text" />
+          <Property Name="c_octava" Type="text" />
+          <Property Name="c_novena" Type="text" />
+          <Property Name="c_decima" Type="text" />
+          <Property Name="c_decimoprimera" Type="text" />
+          <Property Name="c_decimosegunda" Type="text" />
+          <Property Name="c_decimotercera" Type="text" />
+          <Property Name="c_decimocuarta" Type="text" />
+          <Property Name="c_decimoquinta" Type="text" />
+          <Property Name="id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="persona">
+          <Key>
+            <PropertyRef Name="uid" />
+          </Key>
+          <Property Name="uid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="100" />
+          <Property Name="paterno" Type="varchar" MaxLength="75" />
+          <Property Name="materno" Type="varchar" MaxLength="75" />
+          <Property Name="fecha_nacimiento" Type="datetime" />
+          <Property Name="domicilio" Type="varchar" MaxLength="125" />
+          <Property Name="colonia" Type="varchar" MaxLength="75" />
+          <Property Name="cruce1" Type="varchar" MaxLength="75" />
+          <Property Name="cruce2" Type="varchar" MaxLength="75" />
+          <Property Name="sector" Type="varchar" MaxLength="75" />
+          <Property Name="cp" Type="varchar" MaxLength="10" />
+          <Property Name="ciudad" Type="varchar" MaxLength="35" />
+          <Property Name="estado" Type="varchar" MaxLength="35" />
+          <Property Name="municipio" Type="varchar" MaxLength="35" />
+          <Property Name="edo_civil" Type="varchar" MaxLength="25" />
+          <Property Name="reg_matrimonial" Type="varchar" MaxLength="25" />
+          <Property Name="telefono_casa" Type="varchar" MaxLength="12" />
+          <Property Name="telefono_celular" Type="varchar" MaxLength="12" />
+          <Property Name="tipo_vivienda" Type="varchar" MaxLength="25" />
+          <Property Name="tiempo_residiendo" Type="int" />
+          <Property Name="conyuge" Type="varchar" MaxLength="125" />
+          <Property Name="ocupacion_conyuge" Type="varchar" MaxLength="120" />
+        </EntityType>
+        <EntityType Name="plazo">
+          <Key>
+            <PropertyRef Name="uid" />
+          </Key>
+          <Property Name="uid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="plazo1" Type="int" Nullable="false" />
+          <Property Name="descripcion" Type="varchar" MaxLength="120" />
+        </EntityType>
+        <EntityType Name="rel_solicitante_aval">
+          <Key>
+            <PropertyRef Name="id_solicitante" />
+            <PropertyRef Name="id_aval" />
+          </Key>
+          <Property Name="id_solicitante" Type="int" Nullable="false" />
+          <Property Name="id_aval" Type="int" Nullable="false" />
+          <Property Name="cantidad" Type="decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="ingresos_mensuales" Type="decimal" Precision="19" Scale="4" />
+          <Property Name="ingresos_extra" Type="decimal" Precision="19" Scale="4" />
+          <Property Name="gastos_mensuales" Type="decimal" Precision="19" Scale="4" />
+          <Property Name="otras_deudas" Type="decimal" Precision="19" Scale="4" />
+        </EntityType>
+        <EntityType Name="solicitante">
+          <Key>
+            <PropertyRef Name="uid" />
+          </Key>
+          <Property Name="uid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="num_solicitante" Type="varchar" MaxLength="20" />
+          <Property Name="id_persona" Type="int" />
+          <Property Name="numero_socio" Type="varchar" MaxLength="20" />
+          <Property Name="dependientes" Type="int" />
+          <Property Name="sueldo" Type="decimal" Precision="19" Scale="4" />
+          <Property Name="sueldo_diario" Type="money" Nullable="false" />
+          <Property Name="departamento" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="solicitud">
+          <Key>
+            <PropertyRef Name="uid" />
+          </Key>
+          <Property Name="uid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_solicitante" Type="int" Nullable="false" />
+          <Property Name="fecha" Type="datetime" Nullable="false" />
+          <Property Name="cantidad_solicitada" Type="decimal" Precision="19" Scale="4" />
+          <Property Name="plazo_solicitado" Type="int" />
+          <Property Name="cantidad_maxima" Type="decimal" Precision="19" Scale="4" />
+          <Property Name="finalidad" Type="varchar" MaxLength="120" />
+          <Property Name="entrega_prestamo" Type="varchar" MaxLength="30" />
+          <Property Name="clave_interbancaria" Type="varchar" MaxLength="30" />
+          <Property Name="tipo_prestamo" Type="char" MaxLength="2" />
+          <Property Name="estatus" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="monto_autorizado" Type="decimal" Precision="19" Scale="4" />
+          <Property Name="plazo_autorizado" Type="int" />
+          <Property Name="fecha_resolucion" Type="datetime" />
+          <Property Name="responsable_autorizacion" Type="int" />
+        </EntityType>
+        <EntityType Name="tasa">
+          <Key>
+            <PropertyRef Name="uid" />
+          </Key>
+          <Property Name="uid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="tasa1" Type="float" Nullable="false" />
+          <Property Name="descripcioin" Type="varchar" MaxLength="120" />
+        </EntityType>
+        <EntityType Name="usuario">
+          <Key>
+            <PropertyRef Name="uid" />
+          </Key>
+          <Property Name="uid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_persona" Type="int" />
+          <Property Name="departamento" Type="varchar" MaxLength="100" />
+          <Property Name="usuario1" Type="varchar" MaxLength="60" />
+          <Property Name="contraseña" Type="varchar" MaxLength="8" />
+          <Property Name="grupo" Type="varchar" MaxLength="10" />
+          <Property Name="rol" Type="varchar" MaxLength="10" />
+        </EntityType>
+        <Association Name="fk_aval_persona">
+          <End Role="persona" Type="Self.persona" Multiplicity="0..1" />
+          <End Role="aval" Type="Self.aval" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="persona">
+              <PropertyRef Name="uid" />
+            </Principal>
+            <Dependent Role="aval">
+              <PropertyRef Name="id_persona" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_balance_solicitante">
+          <End Role="solicitante" Type="Self.solicitante" Multiplicity="1" />
+          <End Role="balance" Type="Self.balance" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="solicitante">
+              <PropertyRef Name="uid" />
+            </Principal>
+            <Dependent Role="balance">
+              <PropertyRef Name="id_solicitante" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_balance_usuario">
+          <End Role="usuario" Type="Self.usuario" Multiplicity="0..1" />
+          <End Role="balance" Type="Self.balance" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="usuario">
+              <PropertyRef Name="uid" />
+            </Principal>
+            <Dependent Role="balance">
+              <PropertyRef Name="capturista" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_contrato_rel">
+          <End Role="rel_solicitante_aval" Type="Self.rel_solicitante_aval" Multiplicity="1" />
+          <End Role="contrato" Type="Self.contrato" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="rel_solicitante_aval">
+              <PropertyRef Name="id_solicitante" />
+              <PropertyRef Name="id_aval" />
+            </Principal>
+            <Dependent Role="contrato">
+              <PropertyRef Name="id_solicitante" />
+              <PropertyRef Name="id_aval" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_sa_aval">
+          <End Role="aval" Type="Self.aval" Multiplicity="1" />
+          <End Role="rel_solicitante_aval" Type="Self.rel_solicitante_aval" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="aval">
+              <PropertyRef Name="uid" />
+            </Principal>
+            <Dependent Role="rel_solicitante_aval">
+              <PropertyRef Name="id_aval" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_sa_solicitante">
+          <End Role="solicitante" Type="Self.solicitante" Multiplicity="1" />
+          <End Role="rel_solicitante_aval" Type="Self.rel_solicitante_aval" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="solicitante">
+              <PropertyRef Name="uid" />
+            </Principal>
+            <Dependent Role="rel_solicitante_aval">
+              <PropertyRef Name="id_solicitante" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_solicitante_cotizacion">
+          <End Role="solicitante" Type="Self.solicitante" Multiplicity="0..1" />
+          <End Role="cotizacions" Type="Self.cotizacions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="solicitante">
+              <PropertyRef Name="uid" />
+            </Principal>
+            <Dependent Role="cotizacions">
+              <PropertyRef Name="num_solicitante" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_solicitante_persona">
+          <End Role="persona" Type="Self.persona" Multiplicity="0..1" />
+          <End Role="solicitante" Type="Self.solicitante" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="persona">
+              <PropertyRef Name="uid" />
+            </Principal>
+            <Dependent Role="solicitante">
+              <PropertyRef Name="id_persona" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_solicitud_solicitante">
+          <End Role="solicitante" Type="Self.solicitante" Multiplicity="1" />
+          <End Role="solicitud" Type="Self.solicitud" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="solicitante">
+              <PropertyRef Name="uid" />
+            </Principal>
+            <Dependent Role="solicitud">
+              <PropertyRef Name="id_solicitante" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="caja_popular2ModelStoreContainer">
+          <EntitySet Name="aval" EntityType="Self.aval" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="balance" EntityType="Self.balance" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="contrato" EntityType="Self.contrato" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="cotizacions" EntityType="Self.cotizacions" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="formato_contrato" EntityType="Self.formato_contrato" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="persona" EntityType="Self.persona" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="plazo" EntityType="Self.plazo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="rel_solicitante_aval" EntityType="Self.rel_solicitante_aval" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="solicitante" EntityType="Self.solicitante" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="solicitud" EntityType="Self.solicitud" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tasa" EntityType="Self.tasa" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="usuario" EntityType="Self.usuario" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="fk_aval_persona" Association="Self.fk_aval_persona">
+            <End Role="persona" EntitySet="persona" />
+            <End Role="aval" EntitySet="aval" />
+          </AssociationSet>
+          <AssociationSet Name="fk_balance_solicitante" Association="Self.fk_balance_solicitante">
+            <End Role="solicitante" EntitySet="solicitante" />
+            <End Role="balance" EntitySet="balance" />
+          </AssociationSet>
+          <AssociationSet Name="fk_balance_usuario" Association="Self.fk_balance_usuario">
+            <End Role="usuario" EntitySet="usuario" />
+            <End Role="balance" EntitySet="balance" />
+          </AssociationSet>
+          <AssociationSet Name="fk_contrato_rel" Association="Self.fk_contrato_rel">
+            <End Role="rel_solicitante_aval" EntitySet="rel_solicitante_aval" />
+            <End Role="contrato" EntitySet="contrato" />
+          </AssociationSet>
+          <AssociationSet Name="fk_sa_aval" Association="Self.fk_sa_aval">
+            <End Role="aval" EntitySet="aval" />
+            <End Role="rel_solicitante_aval" EntitySet="rel_solicitante_aval" />
+          </AssociationSet>
+          <AssociationSet Name="fk_sa_solicitante" Association="Self.fk_sa_solicitante">
+            <End Role="solicitante" EntitySet="solicitante" />
+            <End Role="rel_solicitante_aval" EntitySet="rel_solicitante_aval" />
+          </AssociationSet>
+          <AssociationSet Name="fk_solicitante_cotizacion" Association="Self.fk_solicitante_cotizacion">
+            <End Role="solicitante" EntitySet="solicitante" />
+            <End Role="cotizacions" EntitySet="cotizacions" />
+          </AssociationSet>
+          <AssociationSet Name="fk_solicitante_persona" Association="Self.fk_solicitante_persona">
+            <End Role="persona" EntitySet="persona" />
+            <End Role="solicitante" EntitySet="solicitante" />
+          </AssociationSet>
+          <AssociationSet Name="fk_solicitud_solicitante" Association="Self.fk_solicitud_solicitante">
+            <End Role="solicitante" EntitySet="solicitante" />
+            <End Role="solicitud" EntitySet="solicitud" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="caja_popular2Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="aval">
+          <Key>
+            <PropertyRef Name="uid" />
+          </Key>
+          <Property Name="uid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_persona" Type="Int32" />
+          <Property Name="num_socio" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="persona" Relationship="Self.fk_aval_persona" FromRole="aval" ToRole="persona" />
+          <NavigationProperty Name="rel_solicitante_aval" Relationship="Self.fk_sa_aval" FromRole="aval" ToRole="rel_solicitante_aval" />
+        </EntityType>
+        <EntityType Name="balance">
+          <Key>
+            <PropertyRef Name="id_solicitante" />
+            <PropertyRef Name="factura" />
+            <PropertyRef Name="num_documento" />
+          </Key>
+          <Property Name="id_solicitante" Type="Int32" Nullable="false" />
+          <Property Name="factura" Type="Int32" Nullable="false" />
+          <Property Name="num_documento" Type="Int32" Nullable="false" />
+          <Property Name="descripcion" Type="String" MaxLength="120" FixedLength="false" Unicode="false" />
+          <Property Name="cantidad" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="fecha_captura" Type="DateTime" Precision="3" />
+          <Property Name="fecha_vencimiento" Type="DateTime" Precision="3" />
+          <Property Name="fecha_pago" Type="DateTime" Precision="3" />
+          <Property Name="capturista" Type="Int32" />
+          <Property Name="borrado" Type="Boolean" />
+          <Property Name="cubierto" Type="Boolean" />
+          <NavigationProperty Name="solicitante" Relationship="Self.fk_balance_solicitante" FromRole="balance" ToRole="solicitante" />
+          <NavigationProperty Name="usuario" Relationship="Self.fk_balance_usuario" FromRole="balance" ToRole="usuario" />
+        </EntityType>
+        <EntityType Name="contrato">
+          <Key>
+            <PropertyRef Name="uid" />
+          </Key>
+          <Property Name="uid" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="id_solicitud" Type="Int32" Nullable="false" />
+          <Property Name="id_solicitante" Type="Int32" Nullable="false" />
+          <Property Name="id_aval" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="rel_solicitante_aval" Relationship="Self.fk_contrato_rel" FromRole="contrato" ToRole="rel_solicitante_aval" />
+        </EntityType>
+        <EntityType Name="cotizacion">
+          <Key>
+            <PropertyRef Name="uid" />
+          </Key>
+          <Property Name="uid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="num_solicitante" Type="Int32" />
+          <Property Name="monto_solicitado" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="plazo" Type="Int32" />
+          <Property Name="fecha_captura" Type="DateTime" Precision="3" />
+          <Property Name="fecha_entrega" Type="DateTime" Precision="3" />
+          <Property Name="monto_asignado" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="tasa" Type="Double" />
+          <NavigationProperty Name="solicitante" Relationship="Self.fk_solicitante_cotizacion" FromRole="cotizacions" ToRole="solicitante" />
+        </EntityType>
+        <EntityType Name="persona">
+          <Key>
+            <PropertyRef Name="uid" />
+          </Key>
+          <Property Name="uid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="paterno" Type="String" MaxLength="75" FixedLength="false" Unicode="false" />
+          <Property Name="materno" Type="String" MaxLength="75" FixedLength="false" Unicode="false" />
+          <Property Name="fecha_nacimiento" Type="DateTime" Precision="3" />
+          <Property Name="domicilio" Type="String" MaxLength="125" FixedLength="false" Unicode="false" />
+          <Property Name="colonia" Type="String" MaxLength="75" FixedLength="false" Unicode="false" />
+          <Property Name="cruce1" Type="String" MaxLength="75" FixedLength="false" Unicode="false" />
+          <Property Name="cruce2" Type="String" MaxLength="75" FixedLength="false" Unicode="false" />
+          <Property Name="sector" Type="String" MaxLength="75" FixedLength="false" Unicode="false" />
+          <Property Name="cp" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="ciudad" Type="String" MaxLength="35" FixedLength="false" Unicode="false" />
+          <Property Name="estado" Type="String" MaxLength="35" FixedLength="false" Unicode="false" />
+          <Property Name="municipio" Type="String" MaxLength="35" FixedLength="false" Unicode="false" />
+          <Property Name="edo_civil" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="reg_matrimonial" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="telefono_casa" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+          <Property Name="telefono_celular" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+          <Property Name="tipo_vivienda" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="tiempo_residiendo" Type="Int32" />
+          <Property Name="conyuge" Type="String" MaxLength="125" FixedLength="false" Unicode="false" />
+          <Property Name="ocupacion_conyuge" Type="String" MaxLength="120" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="avals" Relationship="Self.fk_aval_persona" FromRole="persona" ToRole="aval" />
+          <NavigationProperty Name="solicitantes" Relationship="Self.fk_solicitante_persona" FromRole="persona" ToRole="solicitante" />
+        </EntityType>
+        <EntityType Name="plazo">
+          <Key>
+            <PropertyRef Name="uid" />
+          </Key>
+          <Property Name="uid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="plazo1" Type="Int32" Nullable="false" />
+          <Property Name="descripcion" Type="String" MaxLength="120" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="rel_solicitante_aval">
+          <Key>
+            <PropertyRef Name="id_solicitante" />
+            <PropertyRef Name="id_aval" />
+          </Key>
+          <Property Name="id_solicitante" Type="Int32" Nullable="false" />
+          <Property Name="id_aval" Type="Int32" Nullable="false" />
+          <Property Name="cantidad" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="ingresos_mensuales" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="ingresos_extra" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="gastos_mensuales" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="otras_deudas" Type="Decimal" Precision="19" Scale="4" />
+          <NavigationProperty Name="aval" Relationship="Self.fk_sa_aval" FromRole="rel_solicitante_aval" ToRole="aval" />
+          <NavigationProperty Name="contratoes" Relationship="Self.fk_contrato_rel" FromRole="rel_solicitante_aval" ToRole="contrato" />
+          <NavigationProperty Name="solicitante" Relationship="Self.fk_sa_solicitante" FromRole="rel_solicitante_aval" ToRole="solicitante" />
+        </EntityType>
+        <EntityType Name="solicitante">
+          <Key>
+            <PropertyRef Name="uid" />
+          </Key>
+          <Property Name="uid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="num_solicitante" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="id_persona" Type="Int32" />
+          <Property Name="numero_socio" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="dependientes" Type="Int32" />
+          <Property Name="sueldo" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="sueldo_diario" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="departamento" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="balances" Relationship="Self.fk_balance_solicitante" FromRole="solicitante" ToRole="balance" />
+          <NavigationProperty Name="cotizacions" Relationship="Self.fk_solicitante_cotizacion" FromRole="solicitante" ToRole="cotizacions" />
+          <NavigationProperty Name="persona" Relationship="Self.fk_solicitante_persona" FromRole="solicitante" ToRole="persona" />
+          <NavigationProperty Name="rel_solicitante_aval" Relationship="Self.fk_sa_solicitante" FromRole="solicitante" ToRole="rel_solicitante_aval" />
+          <NavigationProperty Name="solicituds" Relationship="Self.fk_solicitud_solicitante" FromRole="solicitante" ToRole="solicitud" />
+        </EntityType>
+        <EntityType Name="solicitud">
+          <Key>
+            <PropertyRef Name="uid" />
+          </Key>
+          <Property Name="uid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_solicitante" Type="Int32" Nullable="false" />
+          <Property Name="fecha" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="cantidad_solicitada" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="plazo_solicitado" Type="Int32" />
+          <Property Name="cantidad_maxima" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="finalidad" Type="String" MaxLength="120" FixedLength="false" Unicode="false" />
+          <Property Name="entrega_prestamo" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="clave_interbancaria" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="tipo_prestamo" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+          <Property Name="estatus" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="monto_autorizado" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="plazo_autorizado" Type="Int32" />
+          <Property Name="fecha_resolucion" Type="DateTime" Precision="3" />
+          <Property Name="responsable_autorizacion" Type="Int32" />
+          <NavigationProperty Name="solicitante" Relationship="Self.fk_solicitud_solicitante" FromRole="solicitud" ToRole="solicitante" />
+        </EntityType>
+        <EntityType Name="tasa">
+          <Key>
+            <PropertyRef Name="uid" />
+          </Key>
+          <Property Name="uid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="tasa1" Type="Double" Nullable="false" />
+          <Property Name="descripcioin" Type="String" MaxLength="120" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="usuario">
+          <Key>
+            <PropertyRef Name="uid" />
+          </Key>
+          <Property Name="uid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_persona" Type="Int32" Nullable="false" />
+          <Property Name="departamento" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="usuario1" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="contraseña" Type="String" MaxLength="8" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="grupo" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="rol" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="balances" Relationship="Self.fk_balance_usuario" FromRole="usuario" ToRole="balance" />
+        </EntityType>
+        <Association Name="fk_aval_persona">
+          <End Role="persona" Type="Self.persona" Multiplicity="0..1" />
+          <End Role="aval" Type="Self.aval" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="persona">
+              <PropertyRef Name="uid" />
+            </Principal>
+            <Dependent Role="aval">
+              <PropertyRef Name="id_persona" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_sa_aval">
+          <End Role="aval" Type="Self.aval" Multiplicity="1" />
+          <End Role="rel_solicitante_aval" Type="Self.rel_solicitante_aval" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="aval">
+              <PropertyRef Name="uid" />
+            </Principal>
+            <Dependent Role="rel_solicitante_aval">
+              <PropertyRef Name="id_aval" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_balance_solicitante">
+          <End Role="solicitante" Type="Self.solicitante" Multiplicity="1" />
+          <End Role="balance" Type="Self.balance" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="solicitante">
+              <PropertyRef Name="uid" />
+            </Principal>
+            <Dependent Role="balance">
+              <PropertyRef Name="id_solicitante" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_balance_usuario">
+          <End Role="usuario" Type="Self.usuario" Multiplicity="0..1" />
+          <End Role="balance" Type="Self.balance" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="usuario">
+              <PropertyRef Name="uid" />
+            </Principal>
+            <Dependent Role="balance">
+              <PropertyRef Name="capturista" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_contrato_rel">
+          <End Role="rel_solicitante_aval" Type="Self.rel_solicitante_aval" Multiplicity="1" />
+          <End Role="contrato" Type="Self.contrato" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="rel_solicitante_aval">
+              <PropertyRef Name="id_solicitante" />
+              <PropertyRef Name="id_aval" />
+            </Principal>
+            <Dependent Role="contrato">
+              <PropertyRef Name="id_solicitante" />
+              <PropertyRef Name="id_aval" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_solicitante_cotizacion">
+          <End Role="solicitante" Type="Self.solicitante" Multiplicity="0..1" />
+          <End Role="cotizacions" Type="Self.cotizacion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="solicitante">
+              <PropertyRef Name="uid" />
+            </Principal>
+            <Dependent Role="cotizacions">
+              <PropertyRef Name="num_solicitante" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_solicitante_persona">
+          <End Role="persona" Type="Self.persona" Multiplicity="0..1" />
+          <End Role="solicitante" Type="Self.solicitante" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="persona">
+              <PropertyRef Name="uid" />
+            </Principal>
+            <Dependent Role="solicitante">
+              <PropertyRef Name="id_persona" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_sa_solicitante">
+          <End Role="solicitante" Type="Self.solicitante" Multiplicity="1" />
+          <End Role="rel_solicitante_aval" Type="Self.rel_solicitante_aval" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="solicitante">
+              <PropertyRef Name="uid" />
+            </Principal>
+            <Dependent Role="rel_solicitante_aval">
+              <PropertyRef Name="id_solicitante" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_solicitud_solicitante">
+          <End Role="solicitante" Type="Self.solicitante" Multiplicity="1" />
+          <End Role="solicitud" Type="Self.solicitud" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="solicitante">
+              <PropertyRef Name="uid" />
+            </Principal>
+            <Dependent Role="solicitud">
+              <PropertyRef Name="id_solicitante" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="caja_popular2Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="avals" EntityType="Self.aval" />
+          <EntitySet Name="balances" EntityType="Self.balance" />
+          <EntitySet Name="contratoes" EntityType="Self.contrato" />
+          <EntitySet Name="cotizacions" EntityType="Self.cotizacion" />
+          <EntitySet Name="personas" EntityType="Self.persona" />
+          <EntitySet Name="plazoes" EntityType="Self.plazo" />
+          <EntitySet Name="rel_solicitante_aval" EntityType="Self.rel_solicitante_aval" />
+          <EntitySet Name="solicitantes" EntityType="Self.solicitante" />
+          <EntitySet Name="solicituds" EntityType="Self.solicitud" />
+          <EntitySet Name="tasas" EntityType="Self.tasa" />
+          <EntitySet Name="usuarios" EntityType="Self.usuario" />
+          <AssociationSet Name="fk_aval_persona" Association="Self.fk_aval_persona">
+            <End Role="persona" EntitySet="personas" />
+            <End Role="aval" EntitySet="avals" />
+          </AssociationSet>
+          <AssociationSet Name="fk_sa_aval" Association="Self.fk_sa_aval">
+            <End Role="aval" EntitySet="avals" />
+            <End Role="rel_solicitante_aval" EntitySet="rel_solicitante_aval" />
+          </AssociationSet>
+          <AssociationSet Name="fk_balance_solicitante" Association="Self.fk_balance_solicitante">
+            <End Role="solicitante" EntitySet="solicitantes" />
+            <End Role="balance" EntitySet="balances" />
+          </AssociationSet>
+          <AssociationSet Name="fk_balance_usuario" Association="Self.fk_balance_usuario">
+            <End Role="usuario" EntitySet="usuarios" />
+            <End Role="balance" EntitySet="balances" />
+          </AssociationSet>
+          <AssociationSet Name="fk_contrato_rel" Association="Self.fk_contrato_rel">
+            <End Role="rel_solicitante_aval" EntitySet="rel_solicitante_aval" />
+            <End Role="contrato" EntitySet="contratoes" />
+          </AssociationSet>
+          <AssociationSet Name="fk_solicitante_cotizacion" Association="Self.fk_solicitante_cotizacion">
+            <End Role="solicitante" EntitySet="solicitantes" />
+            <End Role="cotizacions" EntitySet="cotizacions" />
+          </AssociationSet>
+          <AssociationSet Name="fk_solicitante_persona" Association="Self.fk_solicitante_persona">
+            <End Role="persona" EntitySet="personas" />
+            <End Role="solicitante" EntitySet="solicitantes" />
+          </AssociationSet>
+          <AssociationSet Name="fk_sa_solicitante" Association="Self.fk_sa_solicitante">
+            <End Role="solicitante" EntitySet="solicitantes" />
+            <End Role="rel_solicitante_aval" EntitySet="rel_solicitante_aval" />
+          </AssociationSet>
+          <AssociationSet Name="fk_solicitud_solicitante" Association="Self.fk_solicitud_solicitante">
+            <End Role="solicitante" EntitySet="solicitantes" />
+            <End Role="solicitud" EntitySet="solicituds" />
+          </AssociationSet>
+          <EntitySet Name="formato_contrato" EntityType="caja_popular2Model.formato_contrato" />
+        </EntityContainer>
+        <EntityType Name="formato_contrato">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="encabezado" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="d_primera" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="d_segunda" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="d_tercera" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="d_tercera2" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="d_tercera3" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="c_primera" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="c_segunda" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="c_segunda1" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="c_tercera1" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="c_tercera2" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="c_cuarta" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="c_quinta" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="c_sexta" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="c_septima" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="c_octava" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="c_novena" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="c_decima" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="c_decimoprimera" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="c_decimosegunda" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="c_decimotercera" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="c_decimocuarta" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="c_decimoquinta" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="id" Type="Int32" Nullable="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="caja_popular2ModelStoreContainer" CdmEntityContainer="caja_popular2Entities">
+          <EntitySetMapping Name="avals">
+            <EntityTypeMapping TypeName="caja_popular2Model.aval">
+              <MappingFragment StoreEntitySet="aval">
+                <ScalarProperty Name="uid" ColumnName="uid" />
+                <ScalarProperty Name="id_persona" ColumnName="id_persona" />
+                <ScalarProperty Name="num_socio" ColumnName="num_socio" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="balances">
+            <EntityTypeMapping TypeName="caja_popular2Model.balance">
+              <MappingFragment StoreEntitySet="balance">
+                <ScalarProperty Name="id_solicitante" ColumnName="id_solicitante" />
+                <ScalarProperty Name="factura" ColumnName="factura" />
+                <ScalarProperty Name="num_documento" ColumnName="num_documento" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="cantidad" ColumnName="cantidad" />
+                <ScalarProperty Name="fecha_captura" ColumnName="fecha_captura" />
+                <ScalarProperty Name="fecha_vencimiento" ColumnName="fecha_vencimiento" />
+                <ScalarProperty Name="fecha_pago" ColumnName="fecha_pago" />
+                <ScalarProperty Name="capturista" ColumnName="capturista" />
+                <ScalarProperty Name="borrado" ColumnName="borrado" />
+                <ScalarProperty Name="cubierto" ColumnName="cubierto" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="contratoes">
+            <EntityTypeMapping TypeName="caja_popular2Model.contrato">
+              <MappingFragment StoreEntitySet="contrato">
+                <ScalarProperty Name="uid" ColumnName="uid" />
+                <ScalarProperty Name="id_solicitud" ColumnName="id_solicitud" />
+                <ScalarProperty Name="id_solicitante" ColumnName="id_solicitante" />
+                <ScalarProperty Name="id_aval" ColumnName="id_aval" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="cotizacions">
+            <EntityTypeMapping TypeName="caja_popular2Model.cotizacion">
+              <MappingFragment StoreEntitySet="cotizacions">
+                <ScalarProperty Name="uid" ColumnName="uid" />
+                <ScalarProperty Name="num_solicitante" ColumnName="num_solicitante" />
+                <ScalarProperty Name="monto_solicitado" ColumnName="monto_solicitado" />
+                <ScalarProperty Name="plazo" ColumnName="plazo" />
+                <ScalarProperty Name="fecha_captura" ColumnName="fecha_captura" />
+                <ScalarProperty Name="fecha_entrega" ColumnName="fecha_entrega" />
+                <ScalarProperty Name="monto_asignado" ColumnName="monto_asignado" />
+                <ScalarProperty Name="tasa" ColumnName="tasa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="personas">
+            <EntityTypeMapping TypeName="caja_popular2Model.persona">
+              <MappingFragment StoreEntitySet="persona">
+                <ScalarProperty Name="uid" ColumnName="uid" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="paterno" ColumnName="paterno" />
+                <ScalarProperty Name="materno" ColumnName="materno" />
+                <ScalarProperty Name="fecha_nacimiento" ColumnName="fecha_nacimiento" />
+                <ScalarProperty Name="domicilio" ColumnName="domicilio" />
+                <ScalarProperty Name="colonia" ColumnName="colonia" />
+                <ScalarProperty Name="cruce1" ColumnName="cruce1" />
+                <ScalarProperty Name="cruce2" ColumnName="cruce2" />
+                <ScalarProperty Name="sector" ColumnName="sector" />
+                <ScalarProperty Name="cp" ColumnName="cp" />
+                <ScalarProperty Name="ciudad" ColumnName="ciudad" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+                <ScalarProperty Name="municipio" ColumnName="municipio" />
+                <ScalarProperty Name="edo_civil" ColumnName="edo_civil" />
+                <ScalarProperty Name="reg_matrimonial" ColumnName="reg_matrimonial" />
+                <ScalarProperty Name="telefono_casa" ColumnName="telefono_casa" />
+                <ScalarProperty Name="telefono_celular" ColumnName="telefono_celular" />
+                <ScalarProperty Name="tipo_vivienda" ColumnName="tipo_vivienda" />
+                <ScalarProperty Name="tiempo_residiendo" ColumnName="tiempo_residiendo" />
+                <ScalarProperty Name="conyuge" ColumnName="conyuge" />
+                <ScalarProperty Name="ocupacion_conyuge" ColumnName="ocupacion_conyuge" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="plazoes">
+            <EntityTypeMapping TypeName="caja_popular2Model.plazo">
+              <MappingFragment StoreEntitySet="plazo">
+                <ScalarProperty Name="uid" ColumnName="uid" />
+                <ScalarProperty Name="plazo1" ColumnName="plazo1" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="rel_solicitante_aval">
+            <EntityTypeMapping TypeName="caja_popular2Model.rel_solicitante_aval">
+              <MappingFragment StoreEntitySet="rel_solicitante_aval">
+                <ScalarProperty Name="id_solicitante" ColumnName="id_solicitante" />
+                <ScalarProperty Name="id_aval" ColumnName="id_aval" />
+                <ScalarProperty Name="cantidad" ColumnName="cantidad" />
+                <ScalarProperty Name="ingresos_mensuales" ColumnName="ingresos_mensuales" />
+                <ScalarProperty Name="ingresos_extra" ColumnName="ingresos_extra" />
+                <ScalarProperty Name="gastos_mensuales" ColumnName="gastos_mensuales" />
+                <ScalarProperty Name="otras_deudas" ColumnName="otras_deudas" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="solicitantes">
+            <EntityTypeMapping TypeName="caja_popular2Model.solicitante">
+              <MappingFragment StoreEntitySet="solicitante">
+                <ScalarProperty Name="uid" ColumnName="uid" />
+                <ScalarProperty Name="num_solicitante" ColumnName="num_solicitante" />
+                <ScalarProperty Name="id_persona" ColumnName="id_persona" />
+                <ScalarProperty Name="numero_socio" ColumnName="numero_socio" />
+                <ScalarProperty Name="dependientes" ColumnName="dependientes" />
+                <ScalarProperty Name="sueldo" ColumnName="sueldo" />
+                <ScalarProperty Name="sueldo_diario" ColumnName="sueldo_diario" />
+                <ScalarProperty Name="departamento" ColumnName="departamento" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="solicituds">
+            <EntityTypeMapping TypeName="caja_popular2Model.solicitud">
+              <MappingFragment StoreEntitySet="solicitud">
+                <ScalarProperty Name="uid" ColumnName="uid" />
+                <ScalarProperty Name="id_solicitante" ColumnName="id_solicitante" />
+                <ScalarProperty Name="fecha" ColumnName="fecha" />
+                <ScalarProperty Name="cantidad_solicitada" ColumnName="cantidad_solicitada" />
+                <ScalarProperty Name="plazo_solicitado" ColumnName="plazo_solicitado" />
+                <ScalarProperty Name="cantidad_maxima" ColumnName="cantidad_maxima" />
+                <ScalarProperty Name="finalidad" ColumnName="finalidad" />
+                <ScalarProperty Name="entrega_prestamo" ColumnName="entrega_prestamo" />
+                <ScalarProperty Name="clave_interbancaria" ColumnName="clave_interbancaria" />
+                <ScalarProperty Name="tipo_prestamo" ColumnName="tipo_prestamo" />
+                <ScalarProperty Name="estatus" ColumnName="estatus" />
+                <ScalarProperty Name="monto_autorizado" ColumnName="monto_autorizado" />
+                <ScalarProperty Name="plazo_autorizado" ColumnName="plazo_autorizado" />
+                <ScalarProperty Name="fecha_resolucion" ColumnName="fecha_resolucion" />
+                <ScalarProperty Name="responsable_autorizacion" ColumnName="responsable_autorizacion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tasas">
+            <EntityTypeMapping TypeName="caja_popular2Model.tasa">
+              <MappingFragment StoreEntitySet="tasa">
+                <ScalarProperty Name="uid" ColumnName="uid" />
+                <ScalarProperty Name="tasa1" ColumnName="tasa1" />
+                <ScalarProperty Name="descripcioin" ColumnName="descripcioin" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="usuarios">
+            <EntityTypeMapping TypeName="caja_popular2Model.usuario">
+              <MappingFragment StoreEntitySet="usuario">
+                <ScalarProperty Name="uid" ColumnName="uid" />
+                <ScalarProperty Name="id_persona" ColumnName="id_persona" />
+                <ScalarProperty Name="departamento" ColumnName="departamento" />
+                <ScalarProperty Name="usuario1" ColumnName="usuario1" />
+                <ScalarProperty Name="contraseña" ColumnName="contraseña" />
+                <ScalarProperty Name="grupo" ColumnName="grupo" />
+                <ScalarProperty Name="rol" ColumnName="rol" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="formato_contrato">
+            <EntityTypeMapping TypeName="caja_popular2Model.formato_contrato">
+              <MappingFragment StoreEntitySet="formato_contrato">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="c_decimoquinta" ColumnName="c_decimoquinta" />
+                <ScalarProperty Name="c_decimocuarta" ColumnName="c_decimocuarta" />
+                <ScalarProperty Name="c_decimotercera" ColumnName="c_decimotercera" />
+                <ScalarProperty Name="c_decimosegunda" ColumnName="c_decimosegunda" />
+                <ScalarProperty Name="c_decimoprimera" ColumnName="c_decimoprimera" />
+                <ScalarProperty Name="c_decima" ColumnName="c_decima" />
+                <ScalarProperty Name="c_novena" ColumnName="c_novena" />
+                <ScalarProperty Name="c_octava" ColumnName="c_octava" />
+                <ScalarProperty Name="c_septima" ColumnName="c_septima" />
+                <ScalarProperty Name="c_sexta" ColumnName="c_sexta" />
+                <ScalarProperty Name="c_quinta" ColumnName="c_quinta" />
+                <ScalarProperty Name="c_cuarta" ColumnName="c_cuarta" />
+                <ScalarProperty Name="c_tercera2" ColumnName="c_tercera2" />
+                <ScalarProperty Name="c_tercera1" ColumnName="c_tercera1" />
+                <ScalarProperty Name="c_segunda1" ColumnName="c_segunda1" />
+                <ScalarProperty Name="c_segunda" ColumnName="c_segunda" />
+                <ScalarProperty Name="c_primera" ColumnName="c_primera" />
+                <ScalarProperty Name="d_tercera3" ColumnName="d_tercera3" />
+                <ScalarProperty Name="d_tercera2" ColumnName="d_tercera2" />
+                <ScalarProperty Name="d_tercera" ColumnName="d_tercera" />
+                <ScalarProperty Name="d_segunda" ColumnName="d_segunda" />
+                <ScalarProperty Name="d_primera" ColumnName="d_primera" />
+                <ScalarProperty Name="encabezado" ColumnName="encabezado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

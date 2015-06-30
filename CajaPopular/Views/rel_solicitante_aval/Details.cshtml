@@ -1,0 +1,75 @@
+﻿@model CajaPopular.rel_solicitante_aval
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>rel_solicitante_aval</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.cantidad)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cantidad)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ingresos_mensuales)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ingresos_mensuales)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ingresos_extra)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ingresos_extra)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.gastos_mensuales)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.gastos_mensuales)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.otras_deudas)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.otras_deudas)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.aval.num_socio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.aval.num_socio)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.solicitante.num_solicitante)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.solicitante.num_solicitante)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

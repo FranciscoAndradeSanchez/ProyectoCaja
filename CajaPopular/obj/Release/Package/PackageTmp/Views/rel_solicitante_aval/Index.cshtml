@@ -1,0 +1,70 @@
+﻿@model IEnumerable<CajaPopular.rel_solicitante_aval>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.cantidad)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ingresos_mensuales)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ingresos_extra)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.gastos_mensuales)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.otras_deudas)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.aval.num_socio)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.solicitante.num_solicitante)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.cantidad)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ingresos_mensuales)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ingresos_extra)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.gastos_mensuales)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.otras_deudas)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.aval.num_socio)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.solicitante.num_solicitante)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
+
+</table>

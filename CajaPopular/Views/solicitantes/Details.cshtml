@@ -1,0 +1,75 @@
+﻿@model CajaPopular.solicitante
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>solicitante</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.num_solicitante)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.num_solicitante)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.numero_socio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.numero_socio)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.dependientes)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dependientes)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sueldo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sueldo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sueldo_diario)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sueldo_diario)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.departamento)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.departamento)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.persona.nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.persona.nombre)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.uid }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,193 @@
+﻿@model CajaPopular.persona
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Borrado</h2>
+
+<h3>¿Esta seguro de borrar el siguiente registro?</h3>
+<div>
+    <h4>Persona</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.paterno)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.paterno)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.materno)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.materno)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fecha_nacimiento)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fecha_nacimiento)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.domicilio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.domicilio)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.colonia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.colonia)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cruce1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cruce1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cruce2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cruce2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.sector)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sector)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cp)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cp)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ciudad)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ciudad)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.estado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.estado)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.municipio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.municipio)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.edo_civil)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.edo_civil)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.reg_matrimonial)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.reg_matrimonial)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.telefono_casa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.telefono_casa)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.telefono_celular)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.telefono_celular)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tipo_vivienda)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tipo_vivienda)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tiempo_residiendo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tiempo_residiendo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.conyuge)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.conyuge)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ocupacion_conyuge)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ocupacion_conyuge)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Borrar" class="btn btn-primary" /> |
+            @Html.ActionLink("Regresar al listado de personas", "Index")
+        </div>
+    }
+</div>

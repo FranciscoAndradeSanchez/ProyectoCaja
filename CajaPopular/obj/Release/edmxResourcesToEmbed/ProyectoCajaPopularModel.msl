@@ -1,0 +1,192 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="caja_popular2ModelStoreContainer" CdmEntityContainer="caja_popular2Entities">
+    <EntitySetMapping Name="avals">
+      <EntityTypeMapping TypeName="caja_popular2Model.aval">
+        <MappingFragment StoreEntitySet="aval">
+          <ScalarProperty Name="uid" ColumnName="uid" />
+          <ScalarProperty Name="id_persona" ColumnName="id_persona" />
+          <ScalarProperty Name="num_socio" ColumnName="num_socio" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="balances">
+      <EntityTypeMapping TypeName="caja_popular2Model.balance">
+        <MappingFragment StoreEntitySet="balance">
+          <ScalarProperty Name="id_solicitante" ColumnName="id_solicitante" />
+          <ScalarProperty Name="factura" ColumnName="factura" />
+          <ScalarProperty Name="num_documento" ColumnName="num_documento" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="cantidad" ColumnName="cantidad" />
+          <ScalarProperty Name="fecha_captura" ColumnName="fecha_captura" />
+          <ScalarProperty Name="fecha_vencimiento" ColumnName="fecha_vencimiento" />
+          <ScalarProperty Name="fecha_pago" ColumnName="fecha_pago" />
+          <ScalarProperty Name="capturista" ColumnName="capturista" />
+          <ScalarProperty Name="borrado" ColumnName="borrado" />
+          <ScalarProperty Name="cubierto" ColumnName="cubierto" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="contratoes">
+      <EntityTypeMapping TypeName="caja_popular2Model.contrato">
+        <MappingFragment StoreEntitySet="contrato">
+          <ScalarProperty Name="uid" ColumnName="uid" />
+          <ScalarProperty Name="id_solicitud" ColumnName="id_solicitud" />
+          <ScalarProperty Name="id_solicitante" ColumnName="id_solicitante" />
+          <ScalarProperty Name="id_aval" ColumnName="id_aval" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="cotizacions">
+      <EntityTypeMapping TypeName="caja_popular2Model.cotizacion">
+        <MappingFragment StoreEntitySet="cotizacions">
+          <ScalarProperty Name="uid" ColumnName="uid" />
+          <ScalarProperty Name="num_solicitante" ColumnName="num_solicitante" />
+          <ScalarProperty Name="monto_solicitado" ColumnName="monto_solicitado" />
+          <ScalarProperty Name="plazo" ColumnName="plazo" />
+          <ScalarProperty Name="fecha_captura" ColumnName="fecha_captura" />
+          <ScalarProperty Name="fecha_entrega" ColumnName="fecha_entrega" />
+          <ScalarProperty Name="monto_asignado" ColumnName="monto_asignado" />
+          <ScalarProperty Name="tasa" ColumnName="tasa" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="personas">
+      <EntityTypeMapping TypeName="caja_popular2Model.persona">
+        <MappingFragment StoreEntitySet="persona">
+          <ScalarProperty Name="uid" ColumnName="uid" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="paterno" ColumnName="paterno" />
+          <ScalarProperty Name="materno" ColumnName="materno" />
+          <ScalarProperty Name="fecha_nacimiento" ColumnName="fecha_nacimiento" />
+          <ScalarProperty Name="domicilio" ColumnName="domicilio" />
+          <ScalarProperty Name="colonia" ColumnName="colonia" />
+          <ScalarProperty Name="cruce1" ColumnName="cruce1" />
+          <ScalarProperty Name="cruce2" ColumnName="cruce2" />
+          <ScalarProperty Name="sector" ColumnName="sector" />
+          <ScalarProperty Name="cp" ColumnName="cp" />
+          <ScalarProperty Name="ciudad" ColumnName="ciudad" />
+          <ScalarProperty Name="estado" ColumnName="estado" />
+          <ScalarProperty Name="municipio" ColumnName="municipio" />
+          <ScalarProperty Name="edo_civil" ColumnName="edo_civil" />
+          <ScalarProperty Name="reg_matrimonial" ColumnName="reg_matrimonial" />
+          <ScalarProperty Name="telefono_casa" ColumnName="telefono_casa" />
+          <ScalarProperty Name="telefono_celular" ColumnName="telefono_celular" />
+          <ScalarProperty Name="tipo_vivienda" ColumnName="tipo_vivienda" />
+          <ScalarProperty Name="tiempo_residiendo" ColumnName="tiempo_residiendo" />
+          <ScalarProperty Name="conyuge" ColumnName="conyuge" />
+          <ScalarProperty Name="ocupacion_conyuge" ColumnName="ocupacion_conyuge" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="plazoes">
+      <EntityTypeMapping TypeName="caja_popular2Model.plazo">
+        <MappingFragment StoreEntitySet="plazo">
+          <ScalarProperty Name="uid" ColumnName="uid" />
+          <ScalarProperty Name="plazo1" ColumnName="plazo1" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="rel_solicitante_aval">
+      <EntityTypeMapping TypeName="caja_popular2Model.rel_solicitante_aval">
+        <MappingFragment StoreEntitySet="rel_solicitante_aval">
+          <ScalarProperty Name="id_solicitante" ColumnName="id_solicitante" />
+          <ScalarProperty Name="id_aval" ColumnName="id_aval" />
+          <ScalarProperty Name="cantidad" ColumnName="cantidad" />
+          <ScalarProperty Name="ingresos_mensuales" ColumnName="ingresos_mensuales" />
+          <ScalarProperty Name="ingresos_extra" ColumnName="ingresos_extra" />
+          <ScalarProperty Name="gastos_mensuales" ColumnName="gastos_mensuales" />
+          <ScalarProperty Name="otras_deudas" ColumnName="otras_deudas" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="solicitantes">
+      <EntityTypeMapping TypeName="caja_popular2Model.solicitante">
+        <MappingFragment StoreEntitySet="solicitante">
+          <ScalarProperty Name="uid" ColumnName="uid" />
+          <ScalarProperty Name="num_solicitante" ColumnName="num_solicitante" />
+          <ScalarProperty Name="id_persona" ColumnName="id_persona" />
+          <ScalarProperty Name="numero_socio" ColumnName="numero_socio" />
+          <ScalarProperty Name="dependientes" ColumnName="dependientes" />
+          <ScalarProperty Name="sueldo" ColumnName="sueldo" />
+          <ScalarProperty Name="sueldo_diario" ColumnName="sueldo_diario" />
+          <ScalarProperty Name="departamento" ColumnName="departamento" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="solicituds">
+      <EntityTypeMapping TypeName="caja_popular2Model.solicitud">
+        <MappingFragment StoreEntitySet="solicitud">
+          <ScalarProperty Name="uid" ColumnName="uid" />
+          <ScalarProperty Name="id_solicitante" ColumnName="id_solicitante" />
+          <ScalarProperty Name="fecha" ColumnName="fecha" />
+          <ScalarProperty Name="cantidad_solicitada" ColumnName="cantidad_solicitada" />
+          <ScalarProperty Name="plazo_solicitado" ColumnName="plazo_solicitado" />
+          <ScalarProperty Name="cantidad_maxima" ColumnName="cantidad_maxima" />
+          <ScalarProperty Name="finalidad" ColumnName="finalidad" />
+          <ScalarProperty Name="entrega_prestamo" ColumnName="entrega_prestamo" />
+          <ScalarProperty Name="clave_interbancaria" ColumnName="clave_interbancaria" />
+          <ScalarProperty Name="tipo_prestamo" ColumnName="tipo_prestamo" />
+          <ScalarProperty Name="estatus" ColumnName="estatus" />
+          <ScalarProperty Name="monto_autorizado" ColumnName="monto_autorizado" />
+          <ScalarProperty Name="plazo_autorizado" ColumnName="plazo_autorizado" />
+          <ScalarProperty Name="fecha_resolucion" ColumnName="fecha_resolucion" />
+          <ScalarProperty Name="responsable_autorizacion" ColumnName="responsable_autorizacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tasas">
+      <EntityTypeMapping TypeName="caja_popular2Model.tasa">
+        <MappingFragment StoreEntitySet="tasa">
+          <ScalarProperty Name="uid" ColumnName="uid" />
+          <ScalarProperty Name="tasa1" ColumnName="tasa1" />
+          <ScalarProperty Name="descripcioin" ColumnName="descripcioin" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="usuarios">
+      <EntityTypeMapping TypeName="caja_popular2Model.usuario">
+        <MappingFragment StoreEntitySet="usuario">
+          <ScalarProperty Name="uid" ColumnName="uid" />
+          <ScalarProperty Name="id_persona" ColumnName="id_persona" />
+          <ScalarProperty Name="departamento" ColumnName="departamento" />
+          <ScalarProperty Name="usuario1" ColumnName="usuario1" />
+          <ScalarProperty Name="contraseña" ColumnName="contraseña" />
+          <ScalarProperty Name="grupo" ColumnName="grupo" />
+          <ScalarProperty Name="rol" ColumnName="rol" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="formato_contrato">
+      <EntityTypeMapping TypeName="caja_popular2Model.formato_contrato">
+        <MappingFragment StoreEntitySet="formato_contrato">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="c_decimoquinta" ColumnName="c_decimoquinta" />
+          <ScalarProperty Name="c_decimocuarta" ColumnName="c_decimocuarta" />
+          <ScalarProperty Name="c_decimotercera" ColumnName="c_decimotercera" />
+          <ScalarProperty Name="c_decimosegunda" ColumnName="c_decimosegunda" />
+          <ScalarProperty Name="c_decimoprimera" ColumnName="c_decimoprimera" />
+          <ScalarProperty Name="c_decima" ColumnName="c_decima" />
+          <ScalarProperty Name="c_novena" ColumnName="c_novena" />
+          <ScalarProperty Name="c_octava" ColumnName="c_octava" />
+          <ScalarProperty Name="c_septima" ColumnName="c_septima" />
+          <ScalarProperty Name="c_sexta" ColumnName="c_sexta" />
+          <ScalarProperty Name="c_quinta" ColumnName="c_quinta" />
+          <ScalarProperty Name="c_cuarta" ColumnName="c_cuarta" />
+          <ScalarProperty Name="c_tercera2" ColumnName="c_tercera2" />
+          <ScalarProperty Name="c_tercera1" ColumnName="c_tercera1" />
+          <ScalarProperty Name="c_segunda1" ColumnName="c_segunda1" />
+          <ScalarProperty Name="c_segunda" ColumnName="c_segunda" />
+          <ScalarProperty Name="c_primera" ColumnName="c_primera" />
+          <ScalarProperty Name="d_tercera3" ColumnName="d_tercera3" />
+          <ScalarProperty Name="d_tercera2" ColumnName="d_tercera2" />
+          <ScalarProperty Name="d_tercera" ColumnName="d_tercera" />
+          <ScalarProperty Name="d_segunda" ColumnName="d_segunda" />
+          <ScalarProperty Name="d_primera" ColumnName="d_primera" />
+          <ScalarProperty Name="encabezado" ColumnName="encabezado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

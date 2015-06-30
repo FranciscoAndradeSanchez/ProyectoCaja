@@ -1,0 +1,112 @@
+﻿@model IEnumerable<CajaPopular.solicitud>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.fecha)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.cantidad_solicitada)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.plazo_solicitado)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.cantidad_maxima)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.finalidad)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.entrega_prestamo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.clave_interbancaria)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tipo_prestamo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.estatus)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.monto_autorizado)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.plazo_autorizado)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fecha_resolucion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.responsable_autorizacion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.solicitante.num_solicitante)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.fecha)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.cantidad_solicitada)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.plazo_solicitado)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.cantidad_maxima)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.finalidad)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.entrega_prestamo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.clave_interbancaria)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tipo_prestamo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.estatus)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.monto_autorizado)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.plazo_autorizado)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.fecha_resolucion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.responsable_autorizacion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.solicitante.num_solicitante)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.uid }) |
+            @Html.ActionLink("Details", "Details", new { id=item.uid }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.uid })
+        </td>
+    </tr>
+}
+
+</table>
