@@ -23,7 +23,7 @@ namespace CajaPopular.Controllers.Vistas
         }
 
         // GET: balances/Details/5
-        public async Task<ActionResult> Details(int? id)
+        public async Task<ActionResult> Details(int id,int fact,int doc)
         {
             if (id == null)
             {
@@ -73,13 +73,13 @@ namespace CajaPopular.Controllers.Vistas
         }
 
         // GET: balances/Edit/5
-        public async Task<ActionResult> Edit(int? id)
+        public async Task<ActionResult> Edit(int id,int fact,int doc)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            balance balance = await db.balances.FindAsync(id);
+            balance balance = await db.balances.FindAsync(id,fact,doc);
             if (balance == null)
             {
                 return HttpNotFound();
@@ -108,7 +108,7 @@ namespace CajaPopular.Controllers.Vistas
         }
 
         // GET: balances/Delete/5
-        public async Task<ActionResult> Delete(int? id)
+        public async Task<ActionResult> Delete(int id,int fact,int doc)
         {
             if (id == null)
             {

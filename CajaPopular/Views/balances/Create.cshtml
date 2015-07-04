@@ -20,7 +20,7 @@
             <div class="form-group">
                 @Html.LabelFor(model => model.id_solicitante, "id_solicitante", htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-4">
-                    @Html.DropDownList("id_solicitante", null, htmlAttributes: new { @class = "form-control" , @id="solicitante"})
+                    @Html.DropDownList("id_solicitante", null, htmlAttributes: new { @class = "form-control" , @id="id_solicitante"})
                     @Html.ValidationMessageFor(model => model.id_solicitante, "", new { @class = "text-danger" })
                 </div>
             </div>
@@ -117,7 +117,7 @@
         </div>
         <div class="form-horizontal col-md-4">
             <div class="form-group col-mod-4 ">
-                <select size="1" class="col-md-10" name="listados" id="listado">
+                <select size="1" class="col-md-10" name="listado" id="listado">
                     @{ var num = 0;}
                     @foreach (var persona in Model.listaper)
                     {
@@ -133,7 +133,14 @@
 
 <script type="text/javascript">
     $("#listado").change(function () {
-        alert("Han cambiado mi valor");
+        alert(window.nom);
+        var $selectedoption = $(this).find("option:selected");
+        alert($selectedoption);
+        var selectedlabel = $selectedoption.text;
+        alert($selectedoption.text);
+        var selectedvalue = $selectedoption.val;
+        alert($selectedoption.val);
+        $("#solicitante").text(selectedlabel);
     });
 </script>
 
