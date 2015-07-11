@@ -9,11 +9,23 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
     <_PublishTargetUrl>C:\inetpub\wwwroot\CajaPopular</_PublishTargetUrl>
   </PropertyGroup>
   <ItemGroup>
+    <File Include="Account/Contrato.pdf">
+      <publishTime>05/19/2015 19:40:49</publishTime>
+    </File>
+    <File Include="Account/Empleado.pdf">
+      <publishTime>05/19/2015 19:43:04</publishTime>
+    </File>
+    <File Include="Account/Pagare.pdf">
+      <publishTime>05/19/2015 19:46:14</publishTime>
+    </File>
+    <File Include="Account/Solicitud.pdf">
+      <publishTime>05/19/2015 19:46:53</publishTime>
+    </File>
     <File Include="bin/Antlr3.Runtime.dll">
       <publishTime>06/16/2015 22:42:24</publishTime>
     </File>
     <File Include="bin/CajaPopular.dll">
-      <publishTime>06/28/2015 12:35:40</publishTime>
+      <publishTime>07/08/2015 22:31:58</publishTime>
     </File>
     <File Include="bin/EntityFramework.dll">
       <publishTime>06/16/2015 22:42:29</publishTime>
@@ -166,7 +178,7 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>06/09/2015 00:59:11</publishTime>
     </File>
     <File Include="Content/Site.css">
-      <publishTime>05/30/2015 23:48:02</publishTime>
+      <publishTime>01/07/2015 22:45:23</publishTime>
     </File>
     <File Include="favicon.ico">
       <publishTime>06/16/2015 22:41:56</publishTime>
@@ -208,7 +220,7 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>06/16/2015 23:28:43</publishTime>
     </File>
     <File Include="packages.config">
-      <publishTime>06/27/2015 15:44:32</publishTime>
+      <publishTime>06/29/2015 23:11:32</publishTime>
     </File>
     <File Include="ProyectoCajaPopularModel.edmx.diagram">
       <publishTime>06/23/2015 23:34:27</publishTime>
@@ -233,6 +245,15 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
     </File>
     <File Include="Scripts/jquery-1.10.2.min.map">
       <publishTime>06/16/2015 22:42:13</publishTime>
+    </File>
+    <File Include="Scripts/jquery-2.1.4.js">
+      <publishTime>06/29/2015 23:11:32</publishTime>
+    </File>
+    <File Include="Scripts/jquery-2.1.4.min.js">
+      <publishTime>06/29/2015 23:11:32</publishTime>
+    </File>
+    <File Include="Scripts/jquery-2.1.4.min.map">
+      <publishTime>06/29/2015 23:11:32</publishTime>
     </File>
     <File Include="Scripts/jquery.validate.js">
       <publishTime>06/16/2015 22:42:25</publishTime>
@@ -271,7 +292,7 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>06/16/2015 22:42:24</publishTime>
     </File>
     <File Include="Scripts/_references.js">
-      <publishTime>06/27/2015 15:44:24</publishTime>
+      <publishTime>06/29/2015 23:11:31</publishTime>
     </File>
     <File Include="Views/Account/ConfirmEmail.cshtml">
       <publishTime>06/16/2015 22:42:28</publishTime>
@@ -325,7 +346,7 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>06/16/2015 23:09:18</publishTime>
     </File>
     <File Include="Views/balances/Create.cshtml">
-      <publishTime>06/16/2015 23:13:25</publishTime>
+      <publishTime>07/08/2015 23:58:01</publishTime>
     </File>
     <File Include="Views/balances/Delete.cshtml">
       <publishTime>06/16/2015 23:13:25</publishTime>
@@ -336,8 +357,20 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
     <File Include="Views/balances/Edit.cshtml">
       <publishTime>06/16/2015 23:13:26</publishTime>
     </File>
+    <File Include="Views/balances/EstadosCuenta.cshtml">
+      <publishTime>06/28/2015 16:14:18</publishTime>
+    </File>
+    <File Include="Views/balances/Generate.cshtml">
+      <publishTime>06/28/2015 16:10:50</publishTime>
+    </File>
     <File Include="Views/balances/Index.cshtml">
-      <publishTime>06/16/2015 23:13:27</publishTime>
+      <publishTime>02/07/2015 00:20:03</publishTime>
+    </File>
+    <File Include="Views/balances/Layout.cshtml">
+      <publishTime>06/28/2015 16:15:56</publishTime>
+    </File>
+    <File Include="Views/balances/Reportes.cshtml">
+      <publishTime>06/28/2015 16:31:04</publishTime>
     </File>
     <File Include="Views/contratos/Create.cshtml">
       <publishTime>06/16/2015 23:14:01</publishTime>
@@ -400,7 +433,7 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>06/17/2015 21:34:24</publishTime>
     </File>
     <File Include="Views/personas/Delete.cshtml">
-      <publishTime>06/17/2015 21:34:00</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="Views/personas/Details.cshtml">
       <publishTime>06/17/2015 21:25:47</publishTime>
@@ -409,7 +442,7 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>06/17/2015 21:33:42</publishTime>
     </File>
     <File Include="Views/personas/Index.cshtml">
-      <publishTime>06/17/2015 21:34:21</publishTime>
+      <publishTime>02/07/2015 00:15:50</publishTime>
     </File>
     <File Include="Views/personas1/Create.cshtml">
       <publishTime>06/16/2015 23:14:54</publishTime>
@@ -463,7 +496,7 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>06/16/2015 22:42:28</publishTime>
     </File>
     <File Include="Views/Shared/_Layout.cshtml">
-      <publishTime>06/17/2015 22:16:35</publishTime>
+      <publishTime>07/05/2015 17:32:27</publishTime>
     </File>
     <File Include="Views/Shared/_LoginPartial.cshtml">
       <publishTime>06/16/2015 22:42:28</publishTime>
@@ -535,7 +568,7 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>06/16/2015 22:41:56</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>06/28/2015 12:35:43</publishTime>
+      <publishTime>07/07/2015 23:37:32</publishTime>
     </File>
   </ItemGroup>
 </Project>

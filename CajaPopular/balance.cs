@@ -24,6 +24,8 @@ namespace CajaPopular
         [Key, Column(Order = 2)]
         public int num_documento { get; set; }
         public string descripcion { get; set; }
+        //[RegularExpression(@"\d+(.\d{0,4})$")]
+        //[Range( 0.1,9999999999999999.9999, ErrorMessage = "Debe de ingresar valores entre 0.01 y 30000.00 mensual solamente")]
         public decimal cantidad { get; set; }
         public System.DateTime fecha_captura { get; set; }
         public System.DateTime fecha_vencimiento { get; set; }

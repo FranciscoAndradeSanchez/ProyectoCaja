@@ -6,7 +6,7 @@
     <title>@ViewBag.Title - My ASP.NET Application</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
-
+    <script src="~/Scripts/jquery-2.1.4.js"></script>
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
@@ -26,8 +26,24 @@
                     @*<li>@Html.ActionLink("Cotizacion", "Cotizacion", "Home")</li>*@
                     <li>@Html.ActionLink("Cotizaciones", "Create", "Cotizaciones")</li>
                     <li>@Html.ActionLink("Contratos", "Create", "contratos")</li>
-                    <li>@Html.ActionLink("Cobranza", "Create", "balances")</li>
-                    <
+                   
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Cobranza ></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li>@Html.ActionLink("Capturar", "Create", "balances")</li>
+                            <li>@Html.ActionLink("Listar", "Index", "balances")</li>
+                            <li>@Html.ActionLink("Editar Captura", "Edit", "balances")</li>
+                            <li>@Html.ActionLink("Borrar Captura", "Delete", "balances")</li>
+
+                            <li class="divider"></li>
+                            <li>@Html.ActionLink("Generar Recibos", "Generate", "balances")</li>
+                            <li>@Html.ActionLink("Estados de Cuenta", "EstadosCuenta", "balances")</li>
+                            <li>@Html.ActionLink("Capturar Layout", "Layout", "balances")</li>
+                          
+                            <li class="divider"></li>
+                            <li>@Html.ActionLink("Reportes", "Reportes", "balances")</li>
+                        </ul>
+                    </li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Servicios ></a>
                         <ul class="dropdown-menu" role="menu">

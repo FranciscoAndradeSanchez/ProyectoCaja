@@ -19,17 +19,18 @@ namespace CajaPopular.Controllers.Vistas
         public async Task<ActionResult> Index()
         {
             var balances = db.balances.Include(b => b.solicitante).Include(b => b.usuario);
+            var listado = balances.ToList().Where(bal => bal.fecha_captura >= (System.DateTime.Now.AddDays(-30)));
             return View(await balances.ToListAsync());
         }
 
         // GET: balances/Details/5
         public async Task<ActionResult> Details(int id,int fact,int doc)
         {
-            if (id == null)
+            if (id == null || fact == null || doc == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            balance balance = await db.balances.FindAsync(id);
+            balance balance = await db.balances.FindAsync(id,fact,doc);
             if (balance == null)
             {
                 return HttpNotFound();
@@ -75,7 +76,7 @@ namespace CajaPopular.Controllers.Vistas
         // GET: balances/Edit/5
         public async Task<ActionResult> Edit(int id,int fact,int doc)
         {
-            if (id == null)
+            if (id == null || fact == null || doc == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
@@ -110,11 +111,11 @@ namespace CajaPopular.Controllers.Vistas
         // GET: balances/Delete/5
         public async Task<ActionResult> Delete(int id,int fact,int doc)
         {
-            if (id == null)
+            if (id == null || fact==null || doc==null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            balance balance = await db.balances.FindAsync(id);
+            balance balance = await db.balances.FindAsync(id,fact,doc);
             if (balance == null)
             {
                 return HttpNotFound();
@@ -125,9 +126,9 @@ namespace CajaPopular.Controllers.Vistas
         // POST: balances/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> DeleteConfirmed(int id)
+        public async Task<ActionResult> DeleteConfirmed(int id,int fact,int doc)
         {
-            balance balance = await db.balances.FindAsync(id);
+            balance balance = await db.balances.FindAsync(id,fact,doc);
             db.balances.Remove(balance);
             await db.SaveChangesAsync();
             return RedirectToAction("Index");
