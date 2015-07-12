@@ -19,8 +19,8 @@ namespace CajaPopular.Controllers.Vistas
         public async Task<ActionResult> Index()
         {
             var balances = db.balances.Include(b => b.solicitante).Include(b => b.usuario);
-            var listado = balances.ToList().Where(bal => bal.fecha_captura >= (System.DateTime.Now.AddDays(-30)));
-            return View(await balances.ToListAsync());
+            var listado = balances.ToList().Where(bal => bal.fecha_captura >= (System.DateTime.Now.AddDays(-1)));
+            return View(listado);
         }
 
         // GET: balances/Details/5

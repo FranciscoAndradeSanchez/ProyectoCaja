@@ -1,143 +1,147 @@
-﻿@*@using CajaPopular.Controllers.Vistas*@
-@model CajaPopular.balance
+﻿@model CajaPopular.balance
 
 @{
-    ViewBag.Title = "Create";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Create</h2>
+
 
 
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-   
-        <div class="form-horizontal ">
-            <h4>Cobranza</h4>
-            <hr/>
-            @Html.ValidationSummary(true, "", new {@class = "text-danger"})
-            <div class="form-group col-md-6 ">
-                @Html.LabelFor(model => model.id_solicitante, "Solicitante", htmlAttributes: new {@class = "control-label col-md-2"})
-                <div class="col-md-12">
-                    @Html.DropDownList("id_solicitante", null, htmlAttributes: new {@class = "form-control", @id = "id_solicitante", placeholder = "Socio ó Solicitante", title = "Ingrese el Numero de Socio o Solicitante"})
-                    @Html.ValidationMessageFor(model => model.id_solicitante, "", new {@class = "text-danger"})
-                </div>
-            </div>
 
-            <div class="form-group col-md-6">
-                @Html.LabelFor(model => model.factura, htmlAttributes: new {@class = "control-label col-md-2"})
-                <div class="col-md-12">
-                    @Html.EditorFor(model => model.factura, new {htmlAttributes = new {@class = "form-control", placeholder = "Factura", title = "Ingrese el numero de Factura"}})
-                    @Html.ValidationMessageFor(model => model.factura, "", new {@class = "text-danger"})
-                </div>
+    <div class="form-horizontal">
+        <h2>Captura de:</h2>
+        <h4>Cobranza</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group col-md-6 ">
+            @Html.LabelFor(model => model.id_solicitante, "Solicitante:", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-12">
+                @Html.DropDownList("id_solicitante", null, htmlAttributes: new { @class = "form-control", @id = "id_solicitante", placeholder = "Socio ó Solicitante", title = "Ingrese el Numero de Socio o Solicitante" })
+                @Html.ValidationMessageFor(model => model.id_solicitante, "", new { @class = "text-danger" })
             </div>
-
-            <div class="form-group col-md-6">
-                @Html.LabelFor(model => model.num_documento, htmlAttributes: new {@class = "control-label col-md-2"})
-                <div class="col-md-12">
-                    @Html.EditorFor(model => model.num_documento, new {htmlAttributes = new {@class = "form-control", placeholder = "Numero de Documentos", title = "Ingrese el numero total de documentos de la transacción"}})
-                    @Html.ValidationMessageFor(model => model.num_documento, "", new {@class = "text-danger"})
-                </div>
-            </div>
-
-            <div class="form-group col-md-6">
-                @Html.LabelFor(model => model.descripcion, htmlAttributes: new {@class = "control-label col-md-2"})
-                <div class="col-md-12">
-                    @Html.EditorFor(model => model.descripcion, new {htmlAttributes = new {@class = "form-control", placeholder = "Descripción", title = "Ingrese la descripción de la operación"}})
-                    @Html.ValidationMessageFor(model => model.descripcion, "", new {@class = "text-danger"})
-                </div>
-            </div>
-            <
-            <div class="form-group col-md-6">
-                @Html.LabelFor(model => model.cantidad, htmlAttributes: new {@class = "control-label col-md-2"})
-                <div class="col-md-12">
-                    @Html.EditorFor(model => model.cantidad, new {htmlAttributes = new {@class = "form-control", @id = "cantidades", placeholder = "Cantidad x documento", title = "Ingrese la cantidad por documento"}})
-                    @Html.ValidationMessageFor(model => model.cantidad, "", new {@class = "text-danger"})
-                </div>
-            </div>
-
-            <div class="form-group col-md-6">
-                @Html.LabelFor(model => model.fecha_captura, htmlAttributes: new {@class = "control-label col-md-2"})
-                <div class="col-md-12">
-                    @Html.EditorFor(model => model.fecha_captura, new {htmlAttributes = new {@class = "form-control", placeholder = "Fecha de Captura", title = "Ingrese la fecha en que se captura la operación"}})
-                    @Html.ValidationMessageFor(model => model.fecha_captura, "", new {@class = "text-danger"})
-                    @*@Html.HiddenFor(model => model.fecha_captura, new {id = "captura", @class = "form-cont*@rol"})
-                </div>
-            </div>
-           
-
-            <div class="form-group col-md-6">
-                @Html.LabelFor(model => model.fecha_vencimiento, htmlAttributes: new {@class = "control-label col-md-2"})
-                <div class="col-md-12">
-                    @Html.EditorFor(model => model.fecha_vencimiento, new {htmlAttributes = new {@class = "form-control", placeholder = "Fecha de Vencimiento", title = "Ingrese la fecha de vencimiento de la operación", id = "txtFechaSimple"}})
-                    @Html.ValidationMessageFor(model => model.fecha_vencimiento, "", new {@class = "text-danger"})
-
-                </div>
-            </div>
-
-            <div class="form-group col-md-6">
-                @Html.LabelFor(model => model.fecha_pago, htmlAttributes: new {@class = "control-label col-md-2"})
-                <div class="col-md-12">
-                    @Html.EditorFor(model => model.fecha_pago, new {htmlAttributes = new {@class = "form-control", placeholder = "Fecha de pago", title = "Ingrese la fecha de pago del primer documento"}})
-                    @Html.ValidationMessageFor(model => model.fecha_pago, "", new {@class = "text-danger"})
-                </div>
-            </div>
-
-            <div class="form-group col-md-6">
-                @Html.LabelFor(model => model.capturista, "capturista", htmlAttributes: new {@class = "control-label col-md-2"})
-                <div class="col-md-12">
-                    @Html.DropDownList("capturista", null, htmlAttributes: new {@class = "form-control", id = "datepicker"})
-                    @Html.ValidationMessageFor(model => model.capturista, "", new {@class = "text-danger"})
-                </div>
-            </div>
-
-            <div class="form-group col-md-6">
-                @Html.LabelFor(model => model.borrado, htmlAttributes: new {@class = "control-label col-md-2"})
-                <div class="col-md-12">
-                    <div class="checkbox">
-                        @Html.EditorFor(model => model.borrado)
-                        @Html.ValidationMessageFor(model => model.borrado, "", new {@class = "text-danger"})
-                    </div>
-                </div>
-            </div>
-
-            <div class="form-group col-md-6">
-                @Html.LabelFor(model => model.cubierto, htmlAttributes: new {@class = "control-label col-md-2"})
-                <div class="col-md-12">
-                    <div class="checkbox">
-                        @Html.EditorFor(model => model.cubierto)
-                        @Html.ValidationMessageFor(model => model.cubierto, "", new {@class = "text-danger"})
-                    </div>
-                </div>
-            </div>
-
-
-            <div class="form-group col-md-6">
-                <div class="col-md-offset-2 col-md-10">
-                    <input type="submit" value="Create" class="btn btn-primary"/>|
-                    @Html.ActionLink("Back to List", "Index")
-                </div>
-            </div>
-           
         </div>
-        @*<div class="form-horizontal col-md-4">
-            <div class="form-group col-mod-4 ">
-                <select size="1" class="col-md-10" name="listado" id="listado">
-                    @{ var num = 0;}
-                    @foreach (var persona in Model.listaper)
-                    {
-                        num += 1;
-                        var nom = persona.nombre + " " + persona.paterno + " " + persona.materno;
-                        <option value=num>@nom</option>
-                    }
-                </select>
+
+        <div class="form-group col-md-6">
+            @Html.LabelFor(model => model.factura, "Factura:", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-12">
+                @Html.EditorFor(model => model.factura, new { htmlAttributes = new { @class = "form-control", placeholder = "Factura", title = "Ingrese el numero de Factura" } })
+                @Html.ValidationMessageFor(model => model.factura, "", new { @class = "text-danger" })
             </div>
-        </div>*@
-        
-  
-   
+        </div>
+
+        <div class="form-group col-md-6">
+            @Html.LabelFor(model => model.num_documento, "Documento:", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-12">
+                @Html.EditorFor(model => model.num_documento, new { htmlAttributes = new { @class = "form-control", placeholder = "Numero de Documentos", title = "Ingrese el numero total de documentos de la transacción" } })
+                @Html.ValidationMessageFor(model => model.num_documento, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group col-md-6">
+            @Html.LabelFor(model => model.descripcion, "Descripción:", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-12">
+                @Html.EditorFor(model => model.descripcion, new { htmlAttributes = new { @class = "form-control", placeholder = "Descripción", title = "Ingrese la descripción de la operación" } })
+                @Html.ValidationMessageFor(model => model.descripcion, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group col-md-6">
+            @Html.LabelFor(model => model.cantidad, "Cantidad por documento:", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-12">
+                @Html.EditorFor(model => model.cantidad, new { htmlAttributes = new { @class = "form-control", @id = "cantidades", placeholder = "Cantidad x documento", title = "Ingrese la cantidad por documento" } })
+                @Html.ValidationMessageFor(model => model.cantidad, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group col-md-6">
+            @Html.LabelFor(model => model.fecha_captura, "Fecha de Captura:", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-12">
+                @Html.EditorFor(model => model.fecha_captura, new { htmlAttributes = new { @class = "form-control", placeholder = "Fecha de Captura", title = "Ingrese la fecha en que se captura la operación" } })
+                @Html.ValidationMessageFor(model => model.fecha_captura, "", new { @class = "text-danger" })
+                @*@Html.HiddenFor(model => model.fecha_captura, new {id = "captura", @class = "form-control"})*@
+            </div>
+        </div>
+
+
+        <div class="form-group col-md-6">
+            @Html.LabelFor(model => model.fecha_vencimiento, "Fecha de Vencimiento:", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-12">
+                @Html.EditorFor(model => model.fecha_vencimiento, new { htmlAttributes = new { @class = "form-control", placeholder = "Fecha de Vencimiento", title = "Ingrese la fecha de vencimiento de la operación", id = "txtFechaSimple" } })
+                @Html.ValidationMessageFor(model => model.fecha_vencimiento, "", new { @class = "text-danger" })
+
+            </div>
+        </div>
+
+        <div class="form-group col-md-6">
+            @Html.LabelFor(model => model.fecha_pago, "Fecha de Pago:", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-12">
+                @Html.EditorFor(model => model.fecha_pago, new { htmlAttributes = new { @class = "form-control", placeholder = "Fecha de pago", title = "Ingrese la fecha de pago del primer documento" } })
+                @Html.ValidationMessageFor(model => model.fecha_pago, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group col-md-6">
+            @Html.LabelFor(model => model.capturista, "Capturista", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-12">
+                @Html.DropDownList("capturista", null, htmlAttributes: new { @class = "form-control", id = "datepicker" })
+                @Html.ValidationMessageFor(model => model.capturista, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group col-md-6">
+            @Html.LabelFor(model => model.borrado, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-12">
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.borrado)
+                    @Html.ValidationMessageFor(model => model.borrado, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group col-md-6">
+            @Html.LabelFor(model => model.cubierto, "Abono", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-12">
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.cubierto)
+                    @Html.ValidationMessageFor(model => model.cubierto, "", new { @class = "text-danger", @value = false })
+                </div>
+            </div>
+        </div>
+
+
+        <div class="form-group col-md-6">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="N u e v o" class="btn btn-primary" />&nbsp|&nbsp
+                @Html.ActionLink("Regresar a Listado", "Index")
+            </div>
+        </div>
+    </div>
 }
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+
+
+
+@*<div class="form-horizontal col-md-4">
+        <div class="form-group col-mod-4 ">
+            <select size="1" class="col-md-10" name="listado" id="listado">
+                @{ var num = 0;}
+                @foreach (var persona in Model.listaper)
+                {
+                    num += 1;
+                    var nom = persona.nombre + " " + persona.paterno + " " + persona.materno;
+                    <option value=num>@nom</option>
+                }
+            </select>
+        </div>
+    </div>*@
 
 @*<script type="text/javascript">
     $("#listado").change(function () {
@@ -165,6 +169,4 @@
     @Scripts.Render("~/bundles/modernizr");
     
 }*@
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}
+

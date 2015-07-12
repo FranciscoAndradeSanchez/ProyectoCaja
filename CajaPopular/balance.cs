@@ -8,7 +8,6 @@
 //------------------------------------------------------------------------------
 
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace CajaPopular
 {
@@ -17,29 +16,25 @@ namespace CajaPopular
     
     public partial class balance
     {
-        [Key, Column(Order=0)]
+        public List<solicitante> listasol;
+        public List<persona> listaper;
+        [Key]
         public int id_solicitante { get; set; }
-        [Key, Column(Order = 1)]
+        [Key]
         public int factura { get; set; }
-        [Key, Column(Order = 2)]
+        [Key]
         public int num_documento { get; set; }
         public string descripcion { get; set; }
-        //[RegularExpression(@"\d+(.\d{0,4})$")]
-        //[Range( 0.1,9999999999999999.9999, ErrorMessage = "Debe de ingresar valores entre 0.01 y 30000.00 mensual solamente")]
-        public decimal cantidad { get; set; }
+        public Nullable<decimal> cantidad { get; set; }
+        [Key]
         public System.DateTime fecha_captura { get; set; }
-        public System.DateTime fecha_vencimiento { get; set; }
-        public System.DateTime fecha_pago { get; set; }
-        public int capturista { get; set; }
-        public bool borrado { get; set; }
-        public bool cubierto { get; set; }
+        public Nullable<System.DateTime> fecha_vencimiento { get; set; }
+        public Nullable<System.DateTime> fecha_pago { get; set; }
+        public Nullable<int> capturista { get; set; }
+        public Nullable<bool> borrado { get; set; }
+        public Nullable<bool> cubierto { get; set; }
     
         public virtual solicitante solicitante { get; set; }
         public virtual usuario usuario { get; set; }
-        public virtual persona persona { get; set; }
-
-        public virtual List<persona> listaper { get; set; }
-        public virtual List<solicitante> listasol { get; set; }
-        public object PrimaryKey { get; set; }
     }
 }

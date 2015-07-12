@@ -19,7 +19,7 @@
     <Property Name="num_documento" Type="int" Nullable="false" />
     <Property Name="descripcion" Type="varchar" MaxLength="120" />
     <Property Name="cantidad" Type="decimal" Precision="19" Scale="4" />
-    <Property Name="fecha_captura" Type="datetime" />
+    <Property Name="fecha_captura" Type="datetime" Nullable="false" />
     <Property Name="fecha_vencimiento" Type="datetime" />
     <Property Name="fecha_pago" Type="datetime" />
     <Property Name="capturista" Type="int" />

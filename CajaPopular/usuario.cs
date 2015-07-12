@@ -20,7 +20,7 @@ namespace CajaPopular
         }
     
         public int uid { get; set; }
-        public int id_persona { get; set; }
+        public Nullable<int> id_persona { get; set; }
         public string departamento { get; set; }
         public string usuario1 { get; set; }
         public string contraseña { get; set; }

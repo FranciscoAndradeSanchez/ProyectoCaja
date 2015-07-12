@@ -33,17 +33,19 @@
                     headerStyle: "head",
                     alternatingRowStyle:"alt",
                     columns: grid.Columns(
-                        grid.Column("descripcion"),
-                        grid.Column("cantidad"),
-                        grid.Column("fecha_captura",
-                            format:p=>p.fecha_captura.ToShortDateString()
-                        ),
+                    grid.Column("id_solicitante",header:"Id Solicitante ."),
+                    grid.Column("factura",header:". Fact ."),
+                    grid.Column("num_documento",header:". Num Doc ."),
+                    grid.Column("descripcion",header:". Descripción ."),
+                    grid.Column("cantidad",header:". Cantidad ."),
+                    grid.Column("fecha_captura",header:". Fecha Captura ."),
+                    grid.Column("fecha_vencimiento", header:". Fecha Vencimiento ."),
                         grid.Column("",
-                                    header:"Acciones",
+                                    header:". Acciones .",
                             format: @<text>
     @Html.ActionLink("Edit", "Edit", new { id = item.id_solicitante, fact = item.factura, doc = item.num_documento }) |
     @Html.ActionLink("Details", "Details", new { id = item.id_solicitante, fact = item.factura, doc = item.num_documento }) |
-    @Html.ActionLink("Delete", "Delete", new { id = item.id_solicitante, fact = item.factura, doc = item.num_documento }))
+    @Html.ActionLink("Delete", "Delete", new { id = item.id_solicitante, fact = item.factura, doc = item.num_documento })
 
                                      </text>
 
@@ -51,7 +53,7 @@
                         )
 
 
-        );
+        )
 </table>
 
 
@@ -59,7 +61,7 @@
 <p>
         @Html.ActionLink("N u e v o", "Create")
     </p>
-    <table class="table">
+    @*<table class="table">
         <tr>
             <th>
                 @Html.DisplayNameFor(model => model.descripcion)
@@ -129,4 +131,4 @@
             </tr>
         }
 
-    </table>
+    </table>*@

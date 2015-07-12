@@ -39,5 +39,19 @@ textarea {
 }
 .grid { margin: 0; border-collapse: collapse; width: 100%; font-family: 'Times New Roman', serif;}
 .grid th, .grid td { border: 1px solid #C0C0C0; padding: 5px; }
-                                .head { background-color: #E8E8E8; font-weight: bold; color: #fff; }
-                                .alt { background-color: #f8f8f8; color: #000; }
+                                .head { background-color: #D2D3F2; font-weight: bold; color: #fff;margin: 1%; }
+                                .alt { background-color: #f8f8f8; color: #000;margin: 1%; }
+
+.form-horizontal {
+    margin-top: 8%;
+}
+
+.alt td {
+    margin: 10px;
+
+}
+
+.head th{
+    margin: 20px;
+    text-align: center;
+}

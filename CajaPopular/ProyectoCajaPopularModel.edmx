@@ -24,7 +24,7 @@
           <Property Name="num_documento" Type="int" Nullable="false" />
           <Property Name="descripcion" Type="varchar" MaxLength="120" />
           <Property Name="cantidad" Type="decimal" Precision="19" Scale="4" />
-          <Property Name="fecha_captura" Type="datetime" />
+          <Property Name="fecha_captura" Type="datetime" Nullable="false" />
           <Property Name="fecha_vencimiento" Type="datetime" />
           <Property Name="fecha_pago" Type="datetime" />
           <Property Name="capturista" Type="int" />
@@ -368,7 +368,7 @@
           <Property Name="num_documento" Type="Int32" Nullable="false" />
           <Property Name="descripcion" Type="String" MaxLength="120" FixedLength="false" Unicode="false" />
           <Property Name="cantidad" Type="Decimal" Precision="19" Scale="4" />
-          <Property Name="fecha_captura" Type="DateTime" Precision="3" />
+          <Property Name="fecha_captura" Type="DateTime" Precision="3" Nullable="false" />
           <Property Name="fecha_vencimiento" Type="DateTime" Precision="3" />
           <Property Name="fecha_pago" Type="DateTime" Precision="3" />
           <Property Name="capturista" Type="Int32" />
@@ -393,7 +393,7 @@
           </Key>
           <Property Name="uid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="num_solicitante" Type="Int32" />
-          <Property Name="monto_solicitado" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="monto_solicitado" Type="Decimal" Precision="19" Scale="4" Nullable="false"/>
           <Property Name="plazo" Type="Int32" />
           <Property Name="fecha_captura" Type="DateTime" Precision="3" />
           <Property Name="fecha_entrega" Type="DateTime" Precision="3" />
@@ -459,9 +459,9 @@
             <PropertyRef Name="uid" />
           </Key>
           <Property Name="uid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="num_solicitante" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="num_solicitante" Type="String" MaxLength="20" FixedLength="false" Unicode="false"  Nullable="false" />
           <Property Name="id_persona" Type="Int32" />
-          <Property Name="numero_socio" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="numero_socio" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false"/>
           <Property Name="dependientes" Type="Int32" />
           <Property Name="sueldo" Type="Decimal" Precision="19" Scale="4" />
           <Property Name="sueldo_diario" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
@@ -506,10 +506,10 @@
             <PropertyRef Name="uid" />
           </Key>
           <Property Name="uid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="id_persona" Type="Int32" Nullable="false" />
+          <Property Name="id_persona" Type="Int32" Nullable="false"/>
           <Property Name="departamento" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="usuario1" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="contraseña" Type="String" MaxLength="8" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="usuario1" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false"/>
+          <Property Name="contraseña" Type="String" MaxLength="8" FixedLength="false" Unicode="false" Nullable="false"/>
           <Property Name="grupo" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="rol" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="balances" Relationship="Self.fk_balance_usuario" FromRole="usuario" ToRole="balance" />

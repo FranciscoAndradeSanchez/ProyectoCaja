@@ -7,6 +7,8 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+using CajaPopular.Models;
+
 namespace CajaPopular
 {
     using System;
@@ -14,9 +16,10 @@ namespace CajaPopular
     
     public partial class cotizacion
     {
+        public persona persona;
         public int uid { get; set; }
         public Nullable<int> num_solicitante { get; set; }
-        public decimal monto_solicitado { get; set; }
+        public Nullable<decimal> monto_solicitado { get; set; }
         public Nullable<int> plazo { get; set; }
         public Nullable<System.DateTime> fecha_captura { get; set; }
         public Nullable<System.DateTime> fecha_entrega { get; set; }
@@ -24,8 +27,6 @@ namespace CajaPopular
         public Nullable<double> tasa { get; set; }
     
         public virtual solicitante solicitante { get; set; }
-
-        public List<Models.CotizacionResult> CotizacionResultssList { get; set; }
-        public virtual persona persona { get; set; }
+        public List<CotizacionResult> CotizacionResultssList { get; set; }
     }
 }

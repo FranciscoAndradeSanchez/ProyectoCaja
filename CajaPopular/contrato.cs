@@ -20,11 +20,5 @@ namespace CajaPopular
         public int id_aval { get; set; }
     
         public virtual rel_solicitante_aval rel_solicitante_aval { get; set; }
-        public virtual aval aval { get; set; }
-        public virtual solicitante solicitante { get; set; }
-        public virtual usuario usuario { get; set; }
-        public virtual cotizacion cotizacion { get; set; }
-        public virtual persona persona { get; set; }
-    
     }
 }
