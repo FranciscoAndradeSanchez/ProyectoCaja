@@ -18,6 +18,7 @@
             <PropertyRef Name="id_solicitante" />
             <PropertyRef Name="factura" />
             <PropertyRef Name="num_documento" />
+            <PropertyRef Name="fecha_captura" />
           </Key>
           <Property Name="id_solicitante" Type="int" Nullable="false" />
           <Property Name="factura" Type="int" Nullable="false" />
@@ -353,7 +354,7 @@
           </Key>
           <Property Name="uid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="id_persona" Type="Int32" />
-          <Property Name="num_socio" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="num_socio" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="persona" Relationship="Self.fk_aval_persona" FromRole="aval" ToRole="persona" />
           <NavigationProperty Name="rel_solicitante_aval" Relationship="Self.fk_sa_aval" FromRole="aval" ToRole="rel_solicitante_aval" />
         </EntityType>
@@ -362,6 +363,7 @@
             <PropertyRef Name="id_solicitante" />
             <PropertyRef Name="factura" />
             <PropertyRef Name="num_documento" />
+            <PropertyRef Name="fecha_captura" />
           </Key>
           <Property Name="id_solicitante" Type="Int32" Nullable="false" />
           <Property Name="factura" Type="Int32" Nullable="false" />
@@ -393,7 +395,7 @@
           </Key>
           <Property Name="uid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="num_solicitante" Type="Int32" />
-          <Property Name="monto_solicitado" Type="Decimal" Precision="19" Scale="4" Nullable="false"/>
+          <Property Name="monto_solicitado" Type="Decimal" Precision="19" Scale="4"/>
           <Property Name="plazo" Type="Int32" />
           <Property Name="fecha_captura" Type="DateTime" Precision="3" />
           <Property Name="fecha_entrega" Type="DateTime" Precision="3" />
@@ -459,9 +461,9 @@
             <PropertyRef Name="uid" />
           </Key>
           <Property Name="uid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="num_solicitante" Type="String" MaxLength="20" FixedLength="false" Unicode="false"  Nullable="false" />
+          <Property Name="num_solicitante" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="id_persona" Type="Int32" />
-          <Property Name="numero_socio" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false"/>
+          <Property Name="numero_socio" Type="String" MaxLength="20" FixedLength="false" Unicode="false"/>
           <Property Name="dependientes" Type="Int32" />
           <Property Name="sueldo" Type="Decimal" Precision="19" Scale="4" />
           <Property Name="sueldo_diario" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
@@ -506,10 +508,10 @@
             <PropertyRef Name="uid" />
           </Key>
           <Property Name="uid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="id_persona" Type="Int32" Nullable="false"/>
+          <Property Name="id_persona" Type="Int32"/>
           <Property Name="departamento" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="usuario1" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false"/>
-          <Property Name="contraseña" Type="String" MaxLength="8" FixedLength="false" Unicode="false" Nullable="false"/>
+          <Property Name="usuario1" Type="String" MaxLength="60" FixedLength="false" Unicode="false"/>
+          <Property Name="contraseña" Type="String" MaxLength="8" FixedLength="false" Unicode="false"/>
           <Property Name="grupo" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="rol" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="balances" Relationship="Self.fk_balance_usuario" FromRole="usuario" ToRole="balance" />

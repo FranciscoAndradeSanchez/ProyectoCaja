@@ -55,3 +55,13 @@ textarea {
     margin: 20px;
     text-align: center;
 }
+
+.head {
+    font-size: 7pt;
+    font-style: italic;
+
+}
+.alt {
+    font-size: 8pt;
+    font-weight: bolder;
+}

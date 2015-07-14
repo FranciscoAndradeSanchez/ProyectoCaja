@@ -7,6 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
 namespace CajaPopular
@@ -16,22 +17,33 @@ namespace CajaPopular
     
     public partial class balance
     {
-        public List<solicitante> listasol;
         public List<persona> listaper;
+        public List<solicitante> listasol;
         [Key]
+        [DisplayName("Id Solicitante")]
         public int id_solicitante { get; set; }
-        [Key]
+         [Key]
+         [DisplayName("Factura")]
         public int factura { get; set; }
-        [Key]
+         [Key]
+         [DisplayName("Num Documento")]
         public int num_documento { get; set; }
+        [DisplayName("Descripción")]
         public string descripcion { get; set; }
+        [DisplayName("Cantidad")]
         public Nullable<decimal> cantidad { get; set; }
-        [Key]
+         [Key]
+         [DisplayName("Fecha Captura")]
         public System.DateTime fecha_captura { get; set; }
+        [DisplayName("Fecha Vencimiento")]
         public Nullable<System.DateTime> fecha_vencimiento { get; set; }
+        [DisplayName("Fecha Pago")]
         public Nullable<System.DateTime> fecha_pago { get; set; }
+        [DisplayName("Capturista")]
         public Nullable<int> capturista { get; set; }
+        [DisplayName("Borrado")]
         public Nullable<bool> borrado { get; set; }
+        [DisplayName("Cubierto")]
         public Nullable<bool> cubierto { get; set; }
     
         public virtual solicitante solicitante { get; set; }

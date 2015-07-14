@@ -1,4 +1,5 @@
-﻿@using System.Runtime.Remoting.Messaging
+﻿@using System.Globalization
+@using System.Runtime.Remoting.Messaging
 @model IEnumerable<CajaPopular.balance>
 
 @{
@@ -6,7 +7,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<h2>Listado</h2>
 
 @using (Html.BeginForm(null, null, FormMethod.Get))
 {
@@ -43,9 +44,25 @@
                         grid.Column("",
                                     header:". Acciones .",
                             format: @<text>
-    @Html.ActionLink("Edit", "Edit", new { id = item.id_solicitante, fact = item.factura, doc = item.num_documento }) |
-    @Html.ActionLink("Details", "Details", new { id = item.id_solicitante, fact = item.factura, doc = item.num_documento }) |
-    @Html.ActionLink("Delete", "Delete", new { id = item.id_solicitante, fact = item.factura, doc = item.num_documento })
+    @Html.ActionLink(" Editar Registro", "Edit", new 
+{   id = item.id_solicitante, 
+    fact = item.factura, 
+    doc = item.num_documento, 
+    cap = item.fecha_captura.ToString("yyyy-MM-dd HH:mm:ss.fff", CultureInfo.InvariantCulture) 
+}) |
+    @Html.ActionLink(" Detallado de Registro ", "Details", new
+{
+    id = item.id_solicitante,
+    fact = item.factura,
+    doc = item.num_documento,
+    cap = item.fecha_captura.ToString("yyyy-MM-dd HH:mm:ss.fff",CultureInfo.InvariantCulture)
+}) |
+    @Html.ActionLink("Borrado de Datos", "Delete", new 
+{   id = item.id_solicitante, 
+    fact = item.factura, 
+    doc = item.num_documento,
+    cap = item.fecha_captura.ToString("yyyy-MM-dd HH:mm:ss.fff", CultureInfo.InvariantCulture)
+})
 
                                      </text>
 

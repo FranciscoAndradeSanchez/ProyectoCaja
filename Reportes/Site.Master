@@ -41,7 +41,7 @@
     </asp:ScriptManager>
     <header>
         <div class="content-wrapper">
-            <rsweb:ReportViewer ID="ReportViewer1" runat="server" Width="624px"></rsweb:ReportViewer>
+            
         </div>
     </header>
     <div id="body">
