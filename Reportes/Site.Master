@@ -40,7 +40,7 @@
         </Scripts>
     </asp:ScriptManager>
     <header>
-        <div class="content-wrapper">
+        <div class="content-wrappers">
             
         </div>
     </header>
@@ -50,7 +50,7 @@
             <asp:ContentPlaceHolder runat="server" ID="MainContent" />
         </section>
     </div>
-    <footer>
+    <footer >
         <div class="content-wrapper">
            <div class="jumbotron">
             <footer>

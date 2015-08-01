@@ -57,11 +57,10 @@ textarea {
 }
 
 .head {
-    font-size: 7pt;
-    font-style: italic;
+     font-size: 8pt;
+    font-weight: bolder;
 
 }
 .alt {
-    font-size: 8pt;
-    font-weight: bolder;
+    background-color: #f7d6d6; 
 }

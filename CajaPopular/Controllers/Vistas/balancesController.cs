@@ -22,7 +22,20 @@ namespace CajaPopular.Controllers.Vistas
             var listado = balances.ToList().Where(bal => bal.fecha_captura >= (System.DateTime.Now.AddDays(-1)));
             return View(listado);
         }
-
+        //public ActionResult Index(int factura, int num_doc, string buscar, int page = 1)
+        //{
+        //    if (buscar == null)
+        //    {
+        //        var balances = db.balances.Include(b => b.solicitante).Include(b => b.usuario);
+        //        var listado = balances.ToList().Where(bal => bal.fecha_captura >= (System.DateTime.Now.AddDays(-1)));
+        //    }
+        //    else
+        //    {
+        //        var balances = db.balances.Include(b => b.solicitante).Include(b => b.usuario);
+        //        var listado = balances.ToList().Where(bal=>bal.factura.Contains())
+        //    }
+        //    return View(listado);
+        //}
         // GET: balances/Details/5
         public async Task<ActionResult> Details(int id, int fact, int doc, string cap)
         {

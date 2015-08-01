@@ -1166,7 +1166,7 @@ namespace Reportes.CobranzaTableAdapters {
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT        id_solicitante, factura, num_documento, descripcion, cantidad, fech" +
                 "a_captura, fecha_vencimiento, fecha_pago, capturista, borrado, cubierto\r\nFROM   " +
-                "         balance\r\nWHERE        (id_solicitante = @solicitante) AND (borrado <> 1" +
+                "         balance\r\nWHERE        (borrado <> 1) AND (id_solicitante = @solicitante" +
                 ")";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@solicitante", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "id_solicitante", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));

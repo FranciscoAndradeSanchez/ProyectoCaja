@@ -41,7 +41,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.fecha_captura, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.fecha_captura, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.fecha_captura, new { htmlAttributes = new { @class = "form-control", } })
                 @Html.ValidationMessageFor(model => model.fecha_captura, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -101,6 +101,15 @@
 <div>
     @Html.ActionLink("Regresar a Listado", "Index")
 </div>
+
+<p>
+    Cultura en servidor:
+    @System.Threading.Thread.CurrentThread.CurrentCulture.Name
+</p>
+
+<script type="text/javascript">
+    alert("Cultura en cliente: " + Sys.CultureInfo.CurrentCulture.name);
+</script>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")

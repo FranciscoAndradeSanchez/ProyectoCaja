@@ -40,6 +40,14 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.ReportViewer.WebForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\MicosoftReportViewerWebForms_v11.1.0.1\lib\Microsoft.ReportViewer.WebForms.DLL</HintPath>
+    </Reference>
+    <Reference Include="ReportViewerForMvc">
+      <HintPath>..\packages\ReportViewerForMvc.1.0.1\lib\net45\ReportViewerForMvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -166,6 +174,11 @@
     <Compile Include="balance.cs">
       <DependentUpon>ProyectoCajaPopularModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Cobranza.Designer.cs">
+      <DependentUpon>Cobranza.xsd</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="contrato.cs">
       <DependentUpon>ProyectoCajaPopularModel.tt</DependentUpon>
     </Compile>
@@ -180,6 +193,7 @@
     <Compile Include="Controllers\Vistas\personasController.cs" />
     <Compile Include="Controllers\Vistas\plazosController.cs" />
     <Compile Include="Controllers\Vistas\rel_solicitante_avalController.cs" />
+    <Compile Include="Controllers\Vistas\ReportesController.cs" />
     <Compile Include="Controllers\Vistas\solicitantesController.cs" />
     <Compile Include="Controllers\Vistas\solicitudesController.cs" />
     <Compile Include="Controllers\Vistas\tasasController.cs" />
@@ -253,6 +267,7 @@
     <Content Include="Images\cobranza.jpg" />
     <Content Include="Images\contrato.jpg" />
     <Content Include="Images\cotizacion.jpg" />
+    <Content Include="ReportViewerWebForm.aspx" />
     <Content Include="Scripts\bootstrap-datetimepicker.js" />
     <Content Include="Scripts\bootstrap-datetimepicker.min.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -283,6 +298,17 @@
     <Content Include="Account\Empleado.pdf" />
     <Content Include="Account\Pagare.pdf" />
     <Content Include="Account\Solicitud.pdf" />
+    <Content Include="Cobranza.xsc">
+      <DependentUpon>Cobranza.xsd</DependentUpon>
+    </Content>
+    <None Include="Cobranza.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Cobranza.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Cobranza.xss">
+      <DependentUpon>Cobranza.xsd</DependentUpon>
+    </Content>
     <None Include="Properties\PublishProfiles\Francisco.pubxml" />
     <Content Include="Scripts\jquery-2.1.4.js" />
     <Content Include="Scripts\jquery-2.1.4.min.js" />
@@ -400,6 +426,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Reportes\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -407,6 +434,15 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Reportes\Reportes.csproj">
+      <Project>{03a71c99-17ef-49f4-9d9c-98f9a7420790}</Project>
+      <Name>Reportes</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ReporteCobranza.rdlc" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

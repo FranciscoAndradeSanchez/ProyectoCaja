@@ -1,0 +1,135 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DataSet1" targetNamespace="http://tempuri.org/DataSet1.xsd" xmlns:mstns="http://tempuri.org/DataSet1.xsd" xmlns="http://tempuri.org/DataSet1.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Web.config" AppSettingsPropertyName="caja_popular2ConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="caja_popular2ConnectionString (Web.config)" ParameterPrefix="@" PropertyReference="AppConfig.System.Configuration.ConfigurationManager.0.ConnectionStrings.caja_popular2ConnectionString.ConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="RecibosCobranzaTableAdapter" GeneratorDataComponentClassName="RecibosCobranzaTableAdapter" Name="RecibosCobranza" UserDataComponentName="RecibosCobranzaTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="caja_popular2ConnectionString (Web.config)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        p.nombre, p.paterno, p.materno, p.domicilio, p.uid, p.colonia, p.fecha_nacimiento, s.num_solicitante, s.numero_socio, s.departamento, SUM(b.cantidad) AS saldo, 
+                         b.factura, b.num_documento,
+                             (SELECT        SUM(cantidad) AS Expr1
+                               FROM            balance
+                               WHERE        (factura = b.factura)
+                               GROUP BY factura) AS saldo
+FROM            balance AS b INNER JOIN
+                         solicitante AS s ON b.id_solicitante = s.uid INNER JOIN
+                         persona AS p ON p.uid = s.id_persona
+WHERE        (b.fecha_vencimiento &lt;= CONVERT(datetime, (CASE WHEN day(GETDATE()) &gt; 15 THEN ((CONVERT(varchar(4), YEAR(GETDATE())) + '-' + CONVERT(varchar(2), 
+                         MONTH(GETDATE())) + '-30')) END))) OR
+                         (b.fecha_vencimiento &lt;= CONVERT(datetime, (CASE WHEN day(GETDATE()) &lt; 15 THEN ((CONVERT(varchar(4), YEAR(GETDATE())) + '-' + CONVERT(varchar(2), 
+                         MONTH(GETDATE())) + '-30')) END)))
+GROUP BY p.nombre, p.paterno, p.materno, p.domicilio, p.uid, p.colonia, p.fecha_nacimiento, s.num_solicitante, s.numero_socio, s.departamento, b.factura, b.num_documento</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="nombre" DataSetColumn="nombre" />
+              <Mapping SourceColumn="paterno" DataSetColumn="paterno" />
+              <Mapping SourceColumn="materno" DataSetColumn="materno" />
+              <Mapping SourceColumn="domicilio" DataSetColumn="domicilio" />
+              <Mapping SourceColumn="uid" DataSetColumn="uid" />
+              <Mapping SourceColumn="colonia" DataSetColumn="colonia" />
+              <Mapping SourceColumn="fecha_nacimiento" DataSetColumn="fecha_nacimiento" />
+              <Mapping SourceColumn="num_solicitante" DataSetColumn="num_solicitante" />
+              <Mapping SourceColumn="numero_socio" DataSetColumn="numero_socio" />
+              <Mapping SourceColumn="departamento" DataSetColumn="departamento" />
+              <Mapping SourceColumn="saldo" DataSetColumn="saldo" />
+              <Mapping SourceColumn="factura" DataSetColumn="factura" />
+              <Mapping SourceColumn="num_documento" DataSetColumn="num_documento" />
+              <Mapping SourceColumn="saldo1" DataSetColumn="saldo1" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DataSet1" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DataSet1" msprop:Generator_UserDSName="DataSet1">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="RecibosCobranza" msprop:Generator_TableClassName="RecibosCobranzaDataTable" msprop:Generator_TableVarName="tableRecibosCobranza" msprop:Generator_TablePropName="RecibosCobranza" msprop:Generator_RowDeletingName="RecibosCobranzaRowDeleting" msprop:Generator_RowChangingName="RecibosCobranzaRowChanging" msprop:Generator_RowEvHandlerName="RecibosCobranzaRowChangeEventHandler" msprop:Generator_RowDeletedName="RecibosCobranzaRowDeleted" msprop:Generator_UserTableName="RecibosCobranza" msprop:Generator_RowChangedName="RecibosCobranzaRowChanged" msprop:Generator_RowEvArgName="RecibosCobranzaRowChangeEvent" msprop:Generator_RowClassName="RecibosCobranzaRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="nombre" msprop:Generator_ColumnVarNameInTable="columnnombre" msprop:Generator_ColumnPropNameInRow="nombre" msprop:Generator_ColumnPropNameInTable="nombreColumn" msprop:Generator_UserColumnName="nombre" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="paterno" msprop:Generator_ColumnVarNameInTable="columnpaterno" msprop:Generator_ColumnPropNameInRow="paterno" msprop:Generator_ColumnPropNameInTable="paternoColumn" msprop:Generator_UserColumnName="paterno" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="75" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="materno" msprop:Generator_ColumnVarNameInTable="columnmaterno" msprop:Generator_ColumnPropNameInRow="materno" msprop:Generator_ColumnPropNameInTable="maternoColumn" msprop:Generator_UserColumnName="materno" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="75" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="domicilio" msprop:Generator_ColumnVarNameInTable="columndomicilio" msprop:Generator_ColumnPropNameInRow="domicilio" msprop:Generator_ColumnPropNameInTable="domicilioColumn" msprop:Generator_UserColumnName="domicilio" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="125" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="uid" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnuid" msprop:Generator_ColumnPropNameInRow="uid" msprop:Generator_ColumnPropNameInTable="uidColumn" msprop:Generator_UserColumnName="uid" type="xs:int" />
+              <xs:element name="colonia" msprop:Generator_ColumnVarNameInTable="columncolonia" msprop:Generator_ColumnPropNameInRow="colonia" msprop:Generator_ColumnPropNameInTable="coloniaColumn" msprop:Generator_UserColumnName="colonia" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="75" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="fecha_nacimiento" msprop:Generator_ColumnVarNameInTable="columnfecha_nacimiento" msprop:Generator_ColumnPropNameInRow="fecha_nacimiento" msprop:Generator_ColumnPropNameInTable="fecha_nacimientoColumn" msprop:Generator_UserColumnName="fecha_nacimiento" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="num_solicitante" msprop:Generator_ColumnVarNameInTable="columnnum_solicitante" msprop:Generator_ColumnPropNameInRow="num_solicitante" msprop:Generator_ColumnPropNameInTable="num_solicitanteColumn" msprop:Generator_UserColumnName="num_solicitante" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="numero_socio" msprop:Generator_ColumnVarNameInTable="columnnumero_socio" msprop:Generator_ColumnPropNameInRow="numero_socio" msprop:Generator_ColumnPropNameInTable="numero_socioColumn" msprop:Generator_UserColumnName="numero_socio" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="departamento" msprop:Generator_ColumnVarNameInTable="columndepartamento" msprop:Generator_ColumnPropNameInRow="departamento" msprop:Generator_ColumnPropNameInTable="departamentoColumn" msprop:Generator_UserColumnName="departamento" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="saldo" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnsaldo" msprop:Generator_ColumnPropNameInRow="saldo" msprop:Generator_ColumnPropNameInTable="saldoColumn" msprop:Generator_UserColumnName="saldo" type="xs:decimal" minOccurs="0" />
+              <xs:element name="factura" msprop:Generator_ColumnVarNameInTable="columnfactura" msprop:Generator_ColumnPropNameInRow="factura" msprop:Generator_ColumnPropNameInTable="facturaColumn" msprop:Generator_UserColumnName="factura" type="xs:int" />
+              <xs:element name="num_documento" msprop:Generator_ColumnVarNameInTable="columnnum_documento" msprop:Generator_ColumnPropNameInRow="num_documento" msprop:Generator_ColumnPropNameInTable="num_documentoColumn" msprop:Generator_UserColumnName="num_documento" type="xs:int" />
+              <xs:element name="saldo1" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnsaldo1" msprop:Generator_ColumnPropNameInRow="saldo1" msprop:Generator_ColumnPropNameInTable="saldo1Column" msprop:Generator_UserColumnName="saldo1" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:RecibosCobranza" />
+      <xs:field xpath="mstns:uid" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

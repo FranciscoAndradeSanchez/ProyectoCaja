@@ -19,33 +19,66 @@ namespace CajaPopular
     {
         public List<persona> listaper;
         public List<solicitante> listasol;
+
         [Key]
         [DisplayName("Id Solicitante")]
+        [Required(AllowEmptyStrings = false, ErrorMessage = "El Id del Solicitante no puede estar vacio.")]
         public int id_solicitante { get; set; }
+
          [Key]
          [DisplayName("Factura")]
+         [Required(AllowEmptyStrings = false, ErrorMessage = "El campo de Factura no puede estar vacio.")]
         public int factura { get; set; }
+
          [Key]
          [DisplayName("Num Documento")]
+         [Required(AllowEmptyStrings = false, ErrorMessage = "El campo de Numero de Documentos no puede estar vacio.")]
         public int num_documento { get; set; }
+
         [DisplayName("Descripción")]
+        [Required(AllowEmptyStrings = false, ErrorMessage = "El campo de Descripción no puede estar vacio.")]
         public string descripcion { get; set; }
+
+        //[Range(0.1, 999999999.99, ErrorMessage = "Debe de ingresar una cantidad valida")]
+        [Range(typeof(decimal), "0.01", "99999999999.99", ErrorMessage = "Debe de ingresar una cantidad valida")]
+        [RegularExpression(@"^\$?\d+(\.(\d{2}))?$")] 
         [DisplayName("Cantidad")]
+        [Required(AllowEmptyStrings = false, ErrorMessage = "El campo de Cantidad no puede estar vacio.")]
+        [DisplayFormat(DataFormatString = "{0:###}", ApplyFormatInEditMode = true)]
         public Nullable<decimal> cantidad { get; set; }
+
          [Key]
          [DisplayName("Fecha Captura")]
+         [Required(AllowEmptyStrings = false, ErrorMessage = "El campo de Fecha no puede estar vacio.")]
+        [DataType(DataType.DateTime)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd H:mm:ss.fff}", ApplyFormatInEditMode = true)]
         public System.DateTime fecha_captura { get; set; }
+
         [DisplayName("Fecha Vencimiento")]
+         [Required(AllowEmptyStrings = false, ErrorMessage = "El campo de Fecha no puede estar vacio.")]
+         [DataType(DataType.DateTime)]
+         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd H:mm:ss.fff}", ApplyFormatInEditMode = true)]
         public Nullable<System.DateTime> fecha_vencimiento { get; set; }
+
         [DisplayName("Fecha Pago")]
+        [Required(AllowEmptyStrings = false, ErrorMessage = "El campo de Fecha no puede estar vacio.")]
+        [DataType(DataType.DateTime)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd H:mm:ss.fff}", ApplyFormatInEditMode = true)]
         public Nullable<System.DateTime> fecha_pago { get; set; }
+
         [DisplayName("Capturista")]
         public Nullable<int> capturista { get; set; }
+
         [DisplayName("Borrado")]
+        [DisplayFormat(ConvertEmptyStringToNull = true, NullDisplayText = "false")]
         public Nullable<bool> borrado { get; set; }
+
         [DisplayName("Cubierto")]
+        [DisplayFormat(ConvertEmptyStringToNull = true, NullDisplayText = "false")]
         public Nullable<bool> cubierto { get; set; }
     
+
+
         public virtual solicitante solicitante { get; set; }
         public virtual usuario usuario { get; set; }
     }
